@@ -7,11 +7,11 @@ class Discount(models.Model):
 
 
 class User(models.Model):  #
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    phone = models.IntegerField()
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
-    passport = models.IntegerField()
+    passport = models.CharField(max_length=255)
     address = models.CharField(max_length=255, null=True)
     comment = models.CharField(max_length=255, null=True)
     is_admin = models.BooleanField(default=False)

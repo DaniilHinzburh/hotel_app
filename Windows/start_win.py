@@ -2,6 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
 from Windows.create_user_win import create_user_win_MainWindow
+from Windows.user_win import User_Win
 from defes import sing_in_user
 
 
@@ -163,16 +164,22 @@ class Ui_MainWindow(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
+    def open_user_window(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = User_Win()
+        User_Win.user = self.user
+        self.ui.setupUi(self.window)
+        self.window.show()
 
 
     def err(self, text: str):
         self.err_label.setText(text)
 
     def user_in(self):
-        self.user = sing_in_user.user_found(self.phone_text.text())
-
+        self.user = sing_in_user.user_found(self.phone_text.text(),self.pass_text.text())
         if self.user is None:
-            self.err("Помилка! Профіль не знайдено, створіть новий профіль")
+            self.err("Помилка! Профіль не знайдено, або пароль не вірний.")
+        else: self.open_user_window()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

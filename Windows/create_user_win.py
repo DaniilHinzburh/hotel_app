@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 from defes import sing_in_user
 
 
@@ -131,34 +132,34 @@ class create_user_win_MainWindow(object):
                                        "}\n"
                                        "")
         self.create_butt.setObjectName("create_butt")
-        self.password_text = QtWidgets.QLineEdit(self.centralwidget)
-        self.password_text.setGeometry(QtCore.QRect(250, 270, 291, 51))
+        self.passport_text = QtWidgets.QLineEdit(self.centralwidget)
+        self.passport_text.setGeometry(QtCore.QRect(250, 270, 291, 51))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
-        self.password_text.setFont(font)
-        self.password_text.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.password_text.setStyleSheet("color: DarkBlue ;\n"
+        self.passport_text.setFont(font)
+        self.passport_text.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.passport_text.setStyleSheet("color: DarkBlue ;\n"
                                          "border: 3px solid bleak;\n"
                                          "border-radius: 20px;\n"
                                          "background-color: rgb(238, 238, 238);")
-        self.password_text.setAlignment(QtCore.Qt.AlignCenter)
-        self.password_text.setObjectName("password_text")
-        self.phone_text = QtWidgets.QLineEdit(self.centralwidget)
-        self.phone_text.setGeometry(QtCore.QRect(250, 210, 291, 51))
+        self.passport_text.setAlignment(QtCore.Qt.AlignCenter)
+        self.passport_text.setObjectName("passport_text")
+        self.phone_text_ = QtWidgets.QLineEdit(self.centralwidget)
+        self.phone_text_.setGeometry(QtCore.QRect(250, 210, 291, 51))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
-        self.phone_text.setFont(font)
-        self.phone_text.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.phone_text.setStyleSheet("color: DarkBlue ;\n"
-                                      "border: 3px solid bleak;\n"
-                                      "border-radius: 20px;\n"
-                                      "background-color: rgb(238, 238, 238);")
-        self.phone_text.setAlignment(QtCore.Qt.AlignCenter)
-        self.phone_text.setObjectName("phone_text")
+        self.phone_text_.setFont(font)
+        self.phone_text_.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.phone_text_.setStyleSheet("color: DarkBlue ;\n"
+                                       "border: 3px solid bleak;\n"
+                                       "border-radius: 20px;\n"
+                                       "background-color: rgb(238, 238, 238);")
+        self.phone_text_.setAlignment(QtCore.Qt.AlignCenter)
+        self.phone_text_.setObjectName("phone_text_")
         self.passport_label = QtWidgets.QLabel(self.centralwidget)
         self.passport_label.setGeometry(QtCore.QRect(70, 270, 161, 51))
         font = QtGui.QFont()
@@ -251,10 +252,11 @@ class create_user_win_MainWindow(object):
         user_list = [
             self.first_name_text.text(),
             self.last_name_text.text(),
-            self.phone_text.text(),
+            self.phone_text_.text(),
             self.password_text.text(),
-            self.adress_text.text(),
-            self.password_text.text()
+            self.passport_text.text(),
+            self.adress_text.text()
+
         ]
 
         if sing_in_user.create_user(*user_list):

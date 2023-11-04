@@ -31,7 +31,7 @@ def user_found(phone_number, password):
         return None
     try:
         user = User.objects.get(phone=phone_number)
-        if user.passport == password:
+        if user.password == password:
             return user
         else:
             return None

@@ -26,6 +26,7 @@ def fill_table_widget_with_data(queryset, table_widget):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
+    user = Ui_MainWindow.user
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()

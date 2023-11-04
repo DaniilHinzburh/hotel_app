@@ -1,6 +1,11 @@
 from django.db import models
 
 
+class Discount(models.Model):
+    name = models.CharField(max_length=255)
+    percent = models.DecimalField(max_digits=5, decimal_places=2)
+
+
 class User(models.Model):  #
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -10,6 +15,7 @@ class User(models.Model):  #
     address = models.CharField(max_length=255, null=True)
     comment = models.CharField(max_length=255, null=True)
     is_admin = models.BooleanField(default=False)
+    discount = models.ManyToManyField(Discount)
 
 
 class Room(models.Model):  #

@@ -1,7 +1,13 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMainWindow
+
+from Windows.create_user_win import create_user_win_MainWindow
+from defes import sing_in_user
 
 
 class Ui_MainWindow(object):
+    user = None
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(600, 600)
@@ -63,7 +69,7 @@ class Ui_MainWindow(object):
         self.err_label = QtWidgets.QLabel(self.centralwidget)
         self.err_label.setGeometry(QtCore.QRect(10, 320, 581, 51))
         font = QtGui.QFont()
-        font.setPointSize(24)
+        font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.err_label.setFont(font)
@@ -146,14 +152,27 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        # self.in_butt.clicked.connect(self.err)
+        # назначение конопок
+        self.create_butt.clicked.connect(self.open_create_user_window)
+        self.in_butt.clicked.connect(lambda: self.user_in())
 
-    #
-    # def open_test_window(self):
-    #     self.window = QtWidgets.QMainWindow()
-    #     self.ui = Ui_Dialog()
-    #     self.ui.setupUi(self.window)
-    #     self.window.show()
+    # открытие окон
+    def open_create_user_window(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = create_user_win_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+
+
+    def err(self, text: str):
+        self.err_label.setText(text)
+
+    def user_in(self):
+        self.user = sing_in_user.user_found(self.phone_text.text())
+
+        if self.user is None:
+            self.err("Помилка! Профіль не знайдено, створіть новий профіль")
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

@@ -170,6 +170,10 @@ class Ui_MainWindow(object):
         User_Win.user = self.user
         self.ui.setupUi(self.window)
         self.window.show()
+        try:
+            print(User_Win.user.first_name)
+        except Exception as e:
+            print(e)
 
 
     def err(self, text: str):

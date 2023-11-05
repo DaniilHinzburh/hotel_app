@@ -2,11 +2,14 @@ import init_django_orm  # noqa: F401
 import db.models
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 from defes import user_defes
 
 
 class User_Win(object):
+    user = None
+    tab_1_set = [None,None,None]
+    tab_2_set = [None,None,None]
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 800)
@@ -436,7 +439,7 @@ class User_Win(object):
                                           "")
         self.do_discounts_2.setObjectName("do_discounts_2")
         self.table_1 = QtWidgets.QTableWidget(self.tab_1)
-        self.table_1.setGeometry(QtCore.QRect(30, 330, 711, 151))
+        self.table_1.setGeometry(QtCore.QRect(75, 330, 631, 151))
         self.table_1.setObjectName("table_1")
         self.table_1.setColumnCount(0)
         self.table_1.setRowCount(0)
@@ -771,7 +774,7 @@ class User_Win(object):
                                         "")
         self.do_discounts.setObjectName("do_discounts")
         self.table_2 = QtWidgets.QTableWidget(self.tab_3)
-        self.table_2.setGeometry(QtCore.QRect(30, 250, 711, 231))
+        self.table_2.setGeometry(QtCore.QRect(75, 250, 631, 231))
         self.table_2.setObjectName("table_2")
         self.table_2.setColumnCount(0)
         self.table_2.setRowCount(0)
@@ -919,13 +922,87 @@ class User_Win(object):
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        # кнопки
-        self.show_my_res.clicked.connect(lambda: self.test())
+        # кнопки снять сейчас
+        self.stand_but.clicked.connect(
+            lambda: self.click_butt(0, self.stand_but, "standard", self.pilux_but, self.lux_but)
 
-        # методы
+        )
 
-    def test(self):
-        user_defes.fill_table_widget_with_data(db.models.User.objects.all(), self.table_3)
+        self.pilux_but.clicked.connect(
+            lambda: self.click_butt(0, self.pilux_but, "deluxe", self.stand_but, self.lux_but)
+        )
+        self.lux_but.clicked.connect(
+            lambda: self.click_butt(0, self.lux_but, "suite", self.stand_but, self.pilux_but)
+        )
+
+        self._2_butt.clicked.connect(
+            lambda: self.click_butt(1, self._2_butt, 2, self._4_butt, self._6_butt)
+
+        )
+        self._4_butt.clicked.connect(
+            lambda: self.click_butt(1, self._4_butt, 4, self._2_butt, self._6_butt)
+
+        )
+        self._6_butt.clicked.connect(
+            lambda: self.click_butt(1, self._6_butt, 6, self._2_butt, self._4_butt)
+        )
+
+        self.show_rooms.clicked.connect(lambda: self.show_rooms_def())
+
+        # методы снять сейчас
+    def click_butt(self, elem, but_click, append, but_1, but_2):
+        self.tab_2_set[elem] = append
+        print(self.tab_2_set)
+        but_click.setStyleSheet("QPushButton {\n"
+                                       "    color: DarkBlue;\n"
+                                       "    border: 3px solid bleak;\n"
+                                       "    border-radius: 20px;\n"
+                                       "    background-color: green;\n"
+                                       "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                       "    padding: 0; /* Удаление внутренних отступов */\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "    background-color: white;\n"
+                                       "}\n"
+                                       "\n"
+                                       "")
+        but_1.setStyleSheet("QPushButton {\n"
+                                       "    color: DarkBlue;\n"
+                                       "    border: 3px solid bleak;\n"
+                                       "    border-radius: 20px;\n"
+                                       "    background-color: grey;\n"
+                                       "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                       "    padding: 0; /* Удаление внутренних отступов */\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "    background-color: white;\n"
+                                       "}\n"
+                                       "\n"
+                                       "")
+        but_2.setStyleSheet("QPushButton {\n"
+                                       "    color: DarkBlue;\n"
+                                       "    border: 3px solid bleak;\n"
+                                       "    border-radius: 20px;\n"
+                                       "    background-color: grey;\n"
+                                       "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                       "    padding: 0; /* Удаление внутренних отступов */\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "    background-color: white;\n"
+                                       "}\n"
+                                       "\n"
+                                       "")
+    def show_rooms_def(self):
+        try:
+            self.tab_2_set[2] = int(self.days_count.text())
+            data = user_defes.find_available_rooms(*self.tab_2_set)
+            user_defes.fill_table_widget_with_data(data, self.table_2)
+        except Exception as e:
+            print(e)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))

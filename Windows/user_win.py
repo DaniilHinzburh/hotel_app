@@ -2,14 +2,15 @@ import init_django_orm  # noqa: F401
 import db.models
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from defes import user_defes,general_defes
+from defes import user_defes, general_defes
 from defes.user_win_defes import click_butt
+from datetime import date, timedelta, datetime
 
 
 class User_Win(object):
     user = None
-    tab_1_set = [None,None,None]
-    tab_2_set = [None,None,None]
+    tab_1_set = [None, None, None, None, None]
+    tab_2_set = [None, None, None]
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -157,19 +158,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_1_6_butt.setFont(font)
         self.tab_1_6_butt.setStyleSheet("QPushButton {\n"
-                                     "    color: DarkBlue;\n"
-                                     "    border: 3px solid bleak;\n"
-                                     "    border-radius: 20px;\n"
-                                     "    background-color: rgb(238, 238, 238);\n"
-                                     "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                     "    padding: 0; /* Удаление внутренних отступов */\n"
-                                     "}\n"
-                                     "\n"
-                                     "QPushButton:hover {\n"
-                                     "    background-color: white;\n"
-                                     "}\n"
-                                     "\n"
-                                     "")
+                                        "    color: DarkBlue;\n"
+                                        "    border: 3px solid bleak;\n"
+                                        "    border-radius: 20px;\n"
+                                        "    background-color: rgb(238, 238, 238);\n"
+                                        "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                        "    padding: 0; /* Удаление внутренних отступов */\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: white;\n"
+                                        "}\n"
+                                        "\n"
+                                        "")
         self.tab_1_6_butt.setObjectName("tab_1_6_butt")
         self.tab_1_stand_but = QtWidgets.QPushButton(self.tab_1)
         self.tab_1_stand_but.setGeometry(QtCore.QRect(350, 10, 121, 51))
@@ -179,19 +180,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_1_stand_but.setFont(font)
         self.tab_1_stand_but.setStyleSheet("QPushButton {\n"
-                                       "    color: DarkBlue;\n"
-                                       "    border: 3px solid bleak;\n"
-                                       "    border-radius: 20px;\n"
-                                       "    background-color: rgb(238, 238, 238);\n"
-                                       "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                       "    padding: 0; /* Удаление внутренних отступов */\n"
-                                       "}\n"
-                                       "\n"
-                                       "QPushButton:hover {\n"
-                                       "    background-color: white;\n"
-                                       "}\n"
-                                       "\n"
-                                       "")
+                                           "    color: DarkBlue;\n"
+                                           "    border: 3px solid bleak;\n"
+                                           "    border-radius: 20px;\n"
+                                           "    background-color: rgb(238, 238, 238);\n"
+                                           "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                           "    padding: 0; /* Удаление внутренних отступов */\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color: white;\n"
+                                           "}\n"
+                                           "\n"
+                                           "")
         self.tab_1_stand_but.setObjectName("tab_1_stand_but")
         self.tab_1_lux_but = QtWidgets.QPushButton(self.tab_1)
         self.tab_1_lux_but.setGeometry(QtCore.QRect(630, 10, 121, 51))
@@ -201,19 +202,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_1_lux_but.setFont(font)
         self.tab_1_lux_but.setStyleSheet("QPushButton {\n"
-                                     "    color: DarkBlue;\n"
-                                     "    border: 3px solid bleak;\n"
-                                     "    border-radius: 20px;\n"
-                                     "    background-color: rgb(238, 238, 238);\n"
-                                     "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                     "    padding: 0; /* Удаление внутренних отступов */\n"
-                                     "}\n"
-                                     "\n"
-                                     "QPushButton:hover {\n"
-                                     "    background-color: white;\n"
-                                     "}\n"
-                                     "\n"
-                                     "")
+                                         "    color: DarkBlue;\n"
+                                         "    border: 3px solid bleak;\n"
+                                         "    border-radius: 20px;\n"
+                                         "    background-color: rgb(238, 238, 238);\n"
+                                         "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                         "    padding: 0; /* Удаление внутренних отступов */\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "    background-color: white;\n"
+                                         "}\n"
+                                         "\n"
+                                         "")
         self.tab_1_lux_but.setObjectName("tab_1_lux_but")
         self.count_price_butt_3 = QtWidgets.QPushButton(self.tab_1)
         self.count_price_butt_3.setGeometry(QtCore.QRect(20, 550, 321, 51))
@@ -245,19 +246,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_1_2_butt.setFont(font)
         self.tab_1_2_butt.setStyleSheet("QPushButton {\n"
-                                     "    color: DarkBlue;\n"
-                                     "    border: 3px solid bleak;\n"
-                                     "    border-radius: 20px;\n"
-                                     "    background-color: rgb(238, 238, 238);\n"
-                                     "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                     "    padding: 0; /* Удаление внутренних отступов */\n"
-                                     "}\n"
-                                     "\n"
-                                     "QPushButton:hover {\n"
-                                     "    background-color: white;\n"
-                                     "}\n"
-                                     "\n"
-                                     "")
+                                        "    color: DarkBlue;\n"
+                                        "    border: 3px solid bleak;\n"
+                                        "    border-radius: 20px;\n"
+                                        "    background-color: rgb(238, 238, 238);\n"
+                                        "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                        "    padding: 0; /* Удаление внутренних отступов */\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: white;\n"
+                                        "}\n"
+                                        "\n"
+                                        "")
         self.tab_1_2_butt.setObjectName("tab_1_2_butt")
         self.tab_1_pilux_but = QtWidgets.QPushButton(self.tab_1)
         self.tab_1_pilux_but.setGeometry(QtCore.QRect(490, 10, 121, 51))
@@ -267,19 +268,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_1_pilux_but.setFont(font)
         self.tab_1_pilux_but.setStyleSheet("QPushButton {\n"
-                                       "    color: DarkBlue;\n"
-                                       "    border: 3px solid bleak;\n"
-                                       "    border-radius: 20px;\n"
-                                       "    background-color: rgb(238, 238, 238);\n"
-                                       "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                       "    padding: 0; /* Удаление внутренних отступов */\n"
-                                       "}\n"
-                                       "\n"
-                                       "QPushButton:hover {\n"
-                                       "    background-color: white;\n"
-                                       "}\n"
-                                       "\n"
-                                       "")
+                                           "    color: DarkBlue;\n"
+                                           "    border: 3px solid bleak;\n"
+                                           "    border-radius: 20px;\n"
+                                           "    background-color: rgb(238, 238, 238);\n"
+                                           "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                           "    padding: 0; /* Удаление внутренних отступов */\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color: white;\n"
+                                           "}\n"
+                                           "\n"
+                                           "")
         self.tab_1_pilux_but.setObjectName("tab_1_pilux_but")
         self.label_23 = QtWidgets.QLabel(self.tab_1)
         self.label_23.setGeometry(QtCore.QRect(20, 70, 301, 51))
@@ -316,19 +317,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_1_4_butt.setFont(font)
         self.tab_1_4_butt.setStyleSheet("QPushButton {\n"
-                                     "    color: DarkBlue;\n"
-                                     "    border: 3px solid bleak;\n"
-                                     "    border-radius: 20px;\n"
-                                     "    background-color: rgb(238, 238, 238);\n"
-                                     "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                     "    padding: 0; /* Удаление внутренних отступов */\n"
-                                     "}\n"
-                                     "\n"
-                                     "QPushButton:hover {\n"
-                                     "    background-color: white;\n"
-                                     "}\n"
-                                     "\n"
-                                     "")
+                                        "    color: DarkBlue;\n"
+                                        "    border: 3px solid bleak;\n"
+                                        "    border-radius: 20px;\n"
+                                        "    background-color: rgb(238, 238, 238);\n"
+                                        "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                        "    padding: 0; /* Удаление внутренних отступов */\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: white;\n"
+                                        "}\n"
+                                        "\n"
+                                        "")
         self.tab_1_4_butt.setObjectName("tab_1_4_butt")
         self.number_text_3 = QtWidgets.QLineEdit(self.tab_1)
         self.number_text_3.setGeometry(QtCore.QRect(520, 270, 151, 51))
@@ -343,28 +344,28 @@ class User_Win(object):
                                          "background-color: rgb(238, 238, 238);")
         self.number_text_3.setAlignment(QtCore.Qt.AlignCenter)
         self.number_text_3.setObjectName("number_text_3")
-        self.show_rooms_2 = QtWidgets.QPushButton(self.tab_1)
-        self.show_rooms_2.setGeometry(QtCore.QRect(20, 270, 301, 51))
+        self.tab_1_show_rooms = QtWidgets.QPushButton(self.tab_1)
+        self.tab_1_show_rooms.setGeometry(QtCore.QRect(20, 270, 301, 51))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.show_rooms_2.setFont(font)
-        self.show_rooms_2.setStyleSheet("QPushButton {\n"
-                                        "    color: DarkBlue;\n"
-                                        "    border: 3px solid bleak;\n"
-                                        "    border-radius: 20px;\n"
-                                        "    background-color: rgb(238, 238, 238);\n"
-                                        "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                        "    padding: 0; /* Удаление внутренних отступов */\n"
-                                        "}\n"
-                                        "\n"
-                                        "QPushButton:hover {\n"
-                                        "    background-color: white;\n"
-                                        "}\n"
-                                        "\n"
-                                        "")
-        self.show_rooms_2.setObjectName("show_rooms_2")
+        self.tab_1_show_rooms.setFont(font)
+        self.tab_1_show_rooms.setStyleSheet("QPushButton {\n"
+                                            "    color: DarkBlue;\n"
+                                            "    border: 3px solid bleak;\n"
+                                            "    border-radius: 20px;\n"
+                                            "    background-color: rgb(238, 238, 238);\n"
+                                            "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                            "    padding: 0; /* Удаление внутренних отступов */\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover {\n"
+                                            "    background-color: white;\n"
+                                            "}\n"
+                                            "\n"
+                                            "")
+        self.tab_1_show_rooms.setObjectName("tab_1_show_rooms")
         self.label_25 = QtWidgets.QLabel(self.tab_1)
         self.label_25.setGeometry(QtCore.QRect(20, 130, 301, 51))
         font = QtGui.QFont()
@@ -496,19 +497,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_2_stand_but.setFont(font)
         self.tab_2_stand_but.setStyleSheet("QPushButton {\n"
-                                     "    color: DarkBlue;\n"
-                                     "    border: 3px solid bleak;\n"
-                                     "    border-radius: 20px;\n"
-                                     "    background-color: rgb(238, 238, 238);\n"
-                                     "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                     "    padding: 0; /* Удаление внутренних отступов */\n"
-                                     "}\n"
-                                     "\n"
-                                     "QPushButton:hover {\n"
-                                     "    background-color: white;\n"
-                                     "}\n"
-                                     "\n"
-                                     "")
+                                           "    color: DarkBlue;\n"
+                                           "    border: 3px solid bleak;\n"
+                                           "    border-radius: 20px;\n"
+                                           "    background-color: rgb(238, 238, 238);\n"
+                                           "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                           "    padding: 0; /* Удаление внутренних отступов */\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color: white;\n"
+                                           "}\n"
+                                           "\n"
+                                           "")
         self.tab_2_stand_but.setObjectName("stand_but")
         self.tab_2_pilux_but = QtWidgets.QPushButton(self.tab_3)
         self.tab_2_pilux_but.setGeometry(QtCore.QRect(490, 10, 121, 51))
@@ -518,19 +519,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_2_pilux_but.setFont(font)
         self.tab_2_pilux_but.setStyleSheet("QPushButton {\n"
-                                     "    color: DarkBlue;\n"
-                                     "    border: 3px solid bleak;\n"
-                                     "    border-radius: 20px;\n"
-                                     "    background-color: rgb(238, 238, 238);\n"
-                                     "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                     "    padding: 0; /* Удаление внутренних отступов */\n"
-                                     "}\n"
-                                     "\n"
-                                     "QPushButton:hover {\n"
-                                     "    background-color: white;\n"
-                                     "}\n"
-                                     "\n"
-                                     "")
+                                           "    color: DarkBlue;\n"
+                                           "    border: 3px solid bleak;\n"
+                                           "    border-radius: 20px;\n"
+                                           "    background-color: rgb(238, 238, 238);\n"
+                                           "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                           "    padding: 0; /* Удаление внутренних отступов */\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color: white;\n"
+                                           "}\n"
+                                           "\n"
+                                           "")
         self.tab_2_pilux_but.setObjectName("pilux_but")
         self.tab_2_lux_but = QtWidgets.QPushButton(self.tab_3)
         self.tab_2_lux_but.setGeometry(QtCore.QRect(630, 10, 121, 51))
@@ -540,19 +541,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_2_lux_but.setFont(font)
         self.tab_2_lux_but.setStyleSheet("QPushButton {\n"
-                                   "    color: DarkBlue;\n"
-                                   "    border: 3px solid bleak;\n"
-                                   "    border-radius: 20px;\n"
-                                   "    background-color: rgb(238, 238, 238);\n"
-                                   "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                   "    padding: 0; /* Удаление внутренних отступов */\n"
-                                   "}\n"
-                                   "\n"
-                                   "QPushButton:hover {\n"
-                                   "    background-color: white;\n"
-                                   "}\n"
-                                   "\n"
-                                   "")
+                                         "    color: DarkBlue;\n"
+                                         "    border: 3px solid bleak;\n"
+                                         "    border-radius: 20px;\n"
+                                         "    background-color: rgb(238, 238, 238);\n"
+                                         "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                         "    padding: 0; /* Удаление внутренних отступов */\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "    background-color: white;\n"
+                                         "}\n"
+                                         "\n"
+                                         "")
         self.tab_2_lux_but.setObjectName("lux_but")
         self.tab_2_2_butt = QtWidgets.QPushButton(self.tab_3)
         self.tab_2_2_butt.setGeometry(QtCore.QRect(350, 70, 121, 51))
@@ -562,19 +563,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_2_2_butt.setFont(font)
         self.tab_2_2_butt.setStyleSheet("QPushButton {\n"
-                                   "    color: DarkBlue;\n"
-                                   "    border: 3px solid bleak;\n"
-                                   "    border-radius: 20px;\n"
-                                   "    background-color: rgb(238, 238, 238);\n"
-                                   "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                   "    padding: 0; /* Удаление внутренних отступов */\n"
-                                   "}\n"
-                                   "\n"
-                                   "QPushButton:hover {\n"
-                                   "    background-color: white;\n"
-                                   "}\n"
-                                   "\n"
-                                   "")
+                                        "    color: DarkBlue;\n"
+                                        "    border: 3px solid bleak;\n"
+                                        "    border-radius: 20px;\n"
+                                        "    background-color: rgb(238, 238, 238);\n"
+                                        "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                        "    padding: 0; /* Удаление внутренних отступов */\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: white;\n"
+                                        "}\n"
+                                        "\n"
+                                        "")
         self.tab_2_2_butt.setObjectName("_2_butt")
         self.tab_2_6_butt = QtWidgets.QPushButton(self.tab_3)
         self.tab_2_6_butt.setGeometry(QtCore.QRect(630, 70, 121, 51))
@@ -584,19 +585,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_2_6_butt.setFont(font)
         self.tab_2_6_butt.setStyleSheet("QPushButton {\n"
-                                   "    color: DarkBlue;\n"
-                                   "    border: 3px solid bleak;\n"
-                                   "    border-radius: 20px;\n"
-                                   "    background-color: rgb(238, 238, 238);\n"
-                                   "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                   "    padding: 0; /* Удаление внутренних отступов */\n"
-                                   "}\n"
-                                   "\n"
-                                   "QPushButton:hover {\n"
-                                   "    background-color: white;\n"
-                                   "}\n"
-                                   "\n"
-                                   "")
+                                        "    color: DarkBlue;\n"
+                                        "    border: 3px solid bleak;\n"
+                                        "    border-radius: 20px;\n"
+                                        "    background-color: rgb(238, 238, 238);\n"
+                                        "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                        "    padding: 0; /* Удаление внутренних отступов */\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: white;\n"
+                                        "}\n"
+                                        "\n"
+                                        "")
         self.tab_2_6_butt.setObjectName("_6_butt")
         self.tab_2_4_butt = QtWidgets.QPushButton(self.tab_3)
         self.tab_2_4_butt.setGeometry(QtCore.QRect(490, 70, 121, 51))
@@ -606,19 +607,19 @@ class User_Win(object):
         font.setWeight(75)
         self.tab_2_4_butt.setFont(font)
         self.tab_2_4_butt.setStyleSheet("QPushButton {\n"
-                                   "    color: DarkBlue;\n"
-                                   "    border: 3px solid bleak;\n"
-                                   "    border-radius: 20px;\n"
-                                   "    background-color: rgb(238, 238, 238);\n"
-                                   "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                   "    padding: 0; /* Удаление внутренних отступов */\n"
-                                   "}\n"
-                                   "\n"
-                                   "QPushButton:hover {\n"
-                                   "    background-color: white;\n"
-                                   "}\n"
-                                   "\n"
-                                   "")
+                                        "    color: DarkBlue;\n"
+                                        "    border: 3px solid bleak;\n"
+                                        "    border-radius: 20px;\n"
+                                        "    background-color: rgb(238, 238, 238);\n"
+                                        "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                                        "    padding: 0; /* Удаление внутренних отступов */\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: white;\n"
+                                        "}\n"
+                                        "\n"
+                                        "")
         self.tab_2_4_butt.setObjectName("_4_butt")
         self.label_11 = QtWidgets.QLabel(self.tab_3)
         self.label_11.setGeometry(QtCore.QRect(20, 490, 161, 51))
@@ -924,34 +925,65 @@ class User_Win(object):
         self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        # кнопки tab_1
+        self.tab_1_stand_but.clicked.connect(
+            lambda: click_butt(self, self.tab_1_set, 0, self.tab_1_stand_but, "standard", self.tab_1_pilux_but,
+                               self.tab_1_lux_but)
+
+        )
+        self.tab_1_pilux_but.clicked.connect(
+            lambda: click_butt(self, self.tab_1_set, 0, self.tab_1_pilux_but, "deluxe", self.tab_1_stand_but,
+                               self.tab_1_lux_but)
+        )
+        self.tab_1_lux_but.clicked.connect(
+            lambda: click_butt(self, self.tab_1_set, 0, self.tab_1_lux_but, "suite", self.tab_1_stand_but,
+                               self.tab_1_pilux_but)
+        )
+        self.tab_1_2_butt.clicked.connect(
+            lambda: click_butt(self, self.tab_1_set, 1, self.tab_1_2_butt, 2, self.tab_1_4_butt, self.tab_1_6_butt)
+        )
+        self.tab_1_4_butt.clicked.connect(
+            lambda: click_butt(self, self.tab_1_set, 1, self.tab_1_4_butt, 4, self.tab_1_2_butt, self.tab_1_6_butt)
+        )
+        self.tab_1_6_butt.clicked.connect(
+            lambda: click_butt(self, self.tab_1_set, 1, self.tab_1_6_butt, 6, self.tab_1_2_butt, self.tab_1_4_butt)
+        )
+        self.tab_1_show_rooms.clicked.connect(lambda: self.tab_1_show_rooms_def())
+
         # кнопки tab_2
         self.tab_2_stand_but.clicked.connect(
-            lambda: click_butt(self,0, self.tab_2_stand_but, "standard", self.tab_2_pilux_but, self.tab_2_lux_but)
-
+            lambda: click_butt(self, self.tab_2_set, 0, self.tab_2_stand_but, "standard", self.tab_2_pilux_but,
+                               self.tab_2_lux_but)
         )
-
         self.tab_2_pilux_but.clicked.connect(
-            lambda: click_butt(self,0, self.tab_2_pilux_but, "deluxe", self.tab_2_stand_but, self.tab_2_lux_but)
+            lambda: click_butt(self, self.tab_2_set, 0, self.tab_2_pilux_but, "deluxe", self.tab_2_stand_but,
+                               self.tab_2_lux_but)
         )
         self.tab_2_lux_but.clicked.connect(
-            lambda: click_butt(self,0, self.tab_2_lux_but, "suite", self.tab_2_stand_but, self.tab_2_pilux_but)
+            lambda: click_butt(self, self.tab_2_set, 0, self.tab_2_lux_but, "suite", self.tab_2_stand_but,
+                               self.tab_2_pilux_but)
         )
-
         self.tab_2_2_butt.clicked.connect(
-            lambda: click_butt(self,1, self.tab_2_2_butt, 2, self.tab_2_4_butt, self.tab_2_6_butt)
-
+            lambda: click_butt(self, self.tab_2_set, 1, self.tab_2_2_butt, 2, self.tab_2_4_butt, self.tab_2_6_butt)
         )
         self.tab_2_4_butt.clicked.connect(
-            lambda: click_butt(self,1, self.tab_2_4_butt, 4, self.tab_2_2_butt, self.tab_2_6_butt)
-
+            lambda: click_butt(self, self.tab_2_set, 1, self.tab_2_4_butt, 4, self.tab_2_2_butt, self.tab_2_6_butt)
         )
         self.tab_2_6_butt.clicked.connect(
-            lambda: click_butt(self,1, self.tab_2_6_butt, 6, self.tab_2_2_butt, self.tab_2_4_butt)
+            lambda: click_butt(self, self.tab_2_set, 1, self.tab_2_6_butt, 6, self.tab_2_2_butt, self.tab_2_4_butt)
         )
-
         self.show_rooms.clicked.connect(lambda: self.tab_2_show_rooms_def())
 
     # методы
+    def tab_1_show_rooms_def(self):
+        try:
+            self.tab_1_set[3] = datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date()
+            self.tab_1_set[4] = datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date()
+            data = user_defes.find_available_rooms(*self.tab_1_set)
+            general_defes.fill_table_widget_with_data(data, self.table_1)
+        except Exception as e:
+            print(e)
+
     def tab_2_show_rooms_def(self):
         try:
             self.tab_2_set[2] = int(self.days_count.text())
@@ -959,15 +991,6 @@ class User_Win(object):
             general_defes.fill_table_widget_with_data(data, self.table_2)
         except Exception as e:
             print(e)
-
-    def tab_1_show_rooms_def(self):
-        try:
-            self.tab_1_set[2] = int(self.days_count.text())
-            data = user_defes.find_available_rooms(*self.tab_2_set)
-            general_defes.fill_table_widget_with_data(data, self.table_2)
-        except Exception as e:
-            print(e)
-
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -983,7 +1006,7 @@ class User_Win(object):
         self.tab_1_pilux_but.setText(_translate("MainWindow", "Напівлюкс"))
         self.label_23.setText(_translate("MainWindow", "Оберіть місткість"))
         self.tab_1_4_butt.setText(_translate("MainWindow", "4"))
-        self.show_rooms_2.setText(_translate("MainWindow", "Підібрати номери"))
+        self.tab_1_show_rooms.setText(_translate("MainWindow", "Підібрати номери"))
         self.label_25.setText(_translate("MainWindow", "Вкажіть дату заселення"))
         self.label_26.setText(_translate("MainWindow", "Вкажіть дату виселення"))
         self.do_discounts_2.setText(_translate("MainWindow", "Застосувати знижки"))

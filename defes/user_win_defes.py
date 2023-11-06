@@ -4,9 +4,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from defes import user_defes
 
 
-def click_butt(self, elem, but_click, append, but_1, but_2):
-    self.tab_2_set[elem] = append
-    print(self.tab_2_set)
+def click_butt(self, set, elem, but_click, append, but_1, but_2):
+    set[elem] = append
     but_click.setStyleSheet("QPushButton {\n"
                             "    color: DarkBlue;\n"
                             "    border: 3px solid bleak;\n"
@@ -49,5 +48,3 @@ def click_butt(self, elem, but_click, append, but_1, but_2):
                         "}\n"
                         "\n"
                         "")
-
-

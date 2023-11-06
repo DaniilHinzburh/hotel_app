@@ -4,10 +4,8 @@ from datetime import date, timedelta, datetime
 from db.models import Room, Reservation
 
 
-
-
-
 def find_available_rooms(comfort, capacity, num_of_days=None, in_data=None, out_data=None):
+
     if in_data is None:
         in_data = datetime.now().date()
 

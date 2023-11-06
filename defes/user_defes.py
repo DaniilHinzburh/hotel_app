@@ -28,7 +28,7 @@ def find_available_rooms(comfort, capacity, num_of_days):
     check_out_date = today + timedelta(days=num_of_days)
 
     # Найдите номера, которые соответствуют критериям комфорта и вместимости
-    available_rooms = Room.objects.filter(comfort=comfort, capacity__gte=capacity)
+    available_rooms = Room.objects.filter(comfort=comfort, capacity=capacity)
 
     # Исключите номеры, которые забронированы на выбранный период
     for room in available_rooms:

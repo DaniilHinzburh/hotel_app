@@ -15,9 +15,7 @@ def click_butt(self, set, elem, but_click, append, but_1, but_2):
                             "    padding: 0; /* Удаление внутренних отступов */\n"
                             "}\n"
                             "\n"
-                            "QPushButton:hover {\n"
-                            "    background-color: white;\n"
-                            "}\n"
+
                             "\n"
                             "")
     but_1.setStyleSheet("QPushButton {\n"
@@ -48,3 +46,19 @@ def click_butt(self, set, elem, but_click, append, but_1, but_2):
                         "}\n"
                         "\n"
                         "")
+
+
+def green_butt(butt):
+    butt.setEnabled(False)
+    butt.setStyleSheet("QPushButton {\n"
+                       "    color: DarkBlue;\n"
+                       "    border: 3px solid bleak;\n"
+                       "    border-radius: 20px;\n"
+                       "    background-color: green;\n"
+                       "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
+                       "    padding: 0; /* Удаление внутренних отступов */\n"
+                       "}\n"
+                       "\n"
+
+                       "\n"
+                       "")

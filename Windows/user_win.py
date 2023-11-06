@@ -3,9 +3,10 @@ import db.models
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from defes import user_defes, general_defes
-from defes.user_win_defes import click_butt
+from defes.user_win_defes import click_butt, green_butt
 from datetime import date, timedelta, datetime
 from decimal import Decimal
+
 
 class User_Win(object):
     user = None
@@ -965,13 +966,8 @@ class User_Win(object):
                 str(general_defes.apply_discounts(self.user, int(self.price_text_3.text())))))
 
         self.create_order_butt_3.clicked.connect(
-            lambda:
-            general_defes.create_reservation(
-                self.user,
-                int(self.number_text_3.text()),
-                datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
-                datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date(),
-                Decimal(self.price_text_3.text())))
+            lambda: self.tab_1_create_order_click()
+        )
 
         # кнопки tab_2
         self.tab_2_stand_but.clicked.connect(
@@ -1002,6 +998,7 @@ class User_Win(object):
                 str(general_defes.count_total_price(int(self.number_text.text()), int(self.days_count.text())))))
         self.do_discounts.clicked.connect(
             lambda: self.price_text.setText(str(general_defes.apply_discounts(self.user, int(self.price_text.text())))))
+        self.create_order_butt.clicked.connect(lambda :self.tab_2_create_order_click())
 
     # методы
     def tab_1_show_rooms_def(self):
@@ -1020,6 +1017,24 @@ class User_Win(object):
             general_defes.fill_table_widget_with_data(data, self.table_2)
         except Exception as e:
             print(e)
+
+    def tab_1_create_order_click(self):
+        green_butt(self.create_order_butt_3)
+        general_defes.create_reservation(
+            self.user,
+            int(self.number_text_3.text()),
+            datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
+            datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date(),
+            Decimal(self.price_text_3.text()))
+
+    def tab_2_create_order_click(self):
+        green_butt(self.create_order_butt)
+        general_defes.create_reservation(
+            self.user,
+            int(self.number_text.text()),
+            datetime.now().date(),
+            datetime.now().date() + timedelta(days=int(self.days_count.text())),
+            Decimal(self.price_text.text()))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

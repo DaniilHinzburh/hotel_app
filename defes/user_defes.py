@@ -24,3 +24,4 @@ def find_available_rooms(comfort, capacity, num_of_days=None, in_data=None, out_
             available_rooms = available_rooms.exclude(pk=room.pk)
 
     return available_rooms
+

@@ -978,6 +978,10 @@ class User_Win(object):
         )
         self.show_rooms.clicked.connect(lambda: self.tab_2_show_rooms_def())
 
+        self.count_price_butt.clicked.connect(
+            lambda: self.price_text.setText(
+                str(general_defes.count_total_price(int(self.number_text.text()), int(self.days_count.text())))))
+
     # методы
     def tab_1_show_rooms_def(self):
         try:

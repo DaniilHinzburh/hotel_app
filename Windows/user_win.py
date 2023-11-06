@@ -5,7 +5,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from defes import user_defes, general_defes
 from defes.user_win_defes import click_butt
 from datetime import date, timedelta, datetime
-
+from decimal import Decimal
 
 class User_Win(object):
     user = None
@@ -954,6 +954,25 @@ class User_Win(object):
         )
         self.tab_1_show_rooms.clicked.connect(lambda: self.tab_1_show_rooms_def())
 
+        self.count_price_butt_3.clicked.connect(
+            lambda: self.price_text_3.setText(
+                str(general_defes.count_total_price(int(self.number_text_3.text()), None,
+                                                    datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
+                                                    datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date()))))
+
+        self.do_discounts_2.clicked.connect(
+            lambda: self.price_text_3.setText(
+                str(general_defes.apply_discounts(self.user, int(self.price_text_3.text())))))
+
+        self.create_order_butt_3.clicked.connect(
+            lambda:
+            general_defes.create_reservation(
+                self.user,
+                int(self.number_text_3.text()),
+                datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
+                datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date(),
+                Decimal(self.price_text_3.text())))
+
         # кнопки tab_2
         self.tab_2_stand_but.clicked.connect(
             lambda: click_butt(self, self.tab_2_set, 0, self.tab_2_stand_but, "standard", self.tab_2_pilux_but,
@@ -981,6 +1000,8 @@ class User_Win(object):
         self.count_price_butt.clicked.connect(
             lambda: self.price_text.setText(
                 str(general_defes.count_total_price(int(self.number_text.text()), int(self.days_count.text())))))
+        self.do_discounts.clicked.connect(
+            lambda: self.price_text.setText(str(general_defes.apply_discounts(self.user, int(self.price_text.text())))))
 
     # методы
     def tab_1_show_rooms_def(self):

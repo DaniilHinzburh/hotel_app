@@ -3,6 +3,7 @@ import db.models
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from defes import user_defes
+from defes.user_win_defes import click_butt
 
 
 class User_Win(object):
@@ -922,87 +923,43 @@ class User_Win(object):
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        # кнопки снять сейчас
+        # кнопки tab_2
         self.stand_but.clicked.connect(
-            lambda: self.click_butt(0, self.stand_but, "standard", self.pilux_but, self.lux_but)
+            lambda: click_butt(self,0, self.stand_but, "standard", self.pilux_but, self.lux_but)
 
         )
 
         self.pilux_but.clicked.connect(
-            lambda: self.click_butt(0, self.pilux_but, "deluxe", self.stand_but, self.lux_but)
+            lambda: click_butt(self,0, self.pilux_but, "deluxe", self.stand_but, self.lux_but)
         )
         self.lux_but.clicked.connect(
-            lambda: self.click_butt(0, self.lux_but, "suite", self.stand_but, self.pilux_but)
+            lambda: click_butt(self,0, self.lux_but, "suite", self.stand_but, self.pilux_but)
         )
 
         self._2_butt.clicked.connect(
-            lambda: self.click_butt(1, self._2_butt, 2, self._4_butt, self._6_butt)
+            lambda: click_butt(self,1, self._2_butt, 2, self._4_butt, self._6_butt)
 
         )
         self._4_butt.clicked.connect(
-            lambda: self.click_butt(1, self._4_butt, 4, self._2_butt, self._6_butt)
+            lambda: click_butt(self,1, self._4_butt, 4, self._2_butt, self._6_butt)
 
         )
         self._6_butt.clicked.connect(
-            lambda: self.click_butt(1, self._6_butt, 6, self._2_butt, self._4_butt)
+            lambda: click_butt(self,1, self._6_butt, 6, self._2_butt, self._4_butt)
         )
 
-        self.show_rooms.clicked.connect(lambda: self.show_rooms_def())
+        self.show_rooms.clicked.connect(lambda: self.tab_2_show_rooms_def())
 
-    # методы снять сейчас
-    def show_rooms_def(self):
+    # методы
+    def tab_2_show_rooms_def(self):
         try:
             self.tab_2_set[2] = int(self.days_count.text())
             data = user_defes.find_available_rooms(*self.tab_2_set)
             user_defes.fill_table_widget_with_data(data, self.table_2)
         except Exception as e:
             print(e)
-    # общие методы
-    def click_butt(self, elem, but_click, append, but_1, but_2):
-        self.tab_2_set[elem] = append
-        print(self.tab_2_set)
-        but_click.setStyleSheet("QPushButton {\n"
-                                       "    color: DarkBlue;\n"
-                                       "    border: 3px solid bleak;\n"
-                                       "    border-radius: 20px;\n"
-                                       "    background-color: green;\n"
-                                       "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                       "    padding: 0; /* Удаление внутренних отступов */\n"
-                                       "}\n"
-                                       "\n"
-                                       "QPushButton:hover {\n"
-                                       "    background-color: white;\n"
-                                       "}\n"
-                                       "\n"
-                                       "")
-        but_1.setStyleSheet("QPushButton {\n"
-                                       "    color: DarkBlue;\n"
-                                       "    border: 3px solid bleak;\n"
-                                       "    border-radius: 20px;\n"
-                                       "    background-color: grey;\n"
-                                       "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                       "    padding: 0; /* Удаление внутренних отступов */\n"
-                                       "}\n"
-                                       "\n"
-                                       "QPushButton:hover {\n"
-                                       "    background-color: white;\n"
-                                       "}\n"
-                                       "\n"
-                                       "")
-        but_2.setStyleSheet("QPushButton {\n"
-                                       "    color: DarkBlue;\n"
-                                       "    border: 3px solid bleak;\n"
-                                       "    border-radius: 20px;\n"
-                                       "    background-color: grey;\n"
-                                       "    text-align: center; /* Выравнивание текста по центру по вертикали */\n"
-                                       "    padding: 0; /* Удаление внутренних отступов */\n"
-                                       "}\n"
-                                       "\n"
-                                       "QPushButton:hover {\n"
-                                       "    background-color: white;\n"
-                                       "}\n"
-                                       "\n"
-                                       "")
+
+
 
 
     def retranslateUi(self, MainWindow):

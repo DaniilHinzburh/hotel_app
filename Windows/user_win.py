@@ -949,7 +949,15 @@ class User_Win(object):
 
         self.show_rooms.clicked.connect(lambda: self.show_rooms_def())
 
-        # методы снять сейчас
+    # методы снять сейчас
+    def show_rooms_def(self):
+        try:
+            self.tab_2_set[2] = int(self.days_count.text())
+            data = user_defes.find_available_rooms(*self.tab_2_set)
+            user_defes.fill_table_widget_with_data(data, self.table_2)
+        except Exception as e:
+            print(e)
+    # общие методы
     def click_butt(self, elem, but_click, append, but_1, but_2):
         self.tab_2_set[elem] = append
         print(self.tab_2_set)
@@ -995,13 +1003,7 @@ class User_Win(object):
                                        "}\n"
                                        "\n"
                                        "")
-    def show_rooms_def(self):
-        try:
-            self.tab_2_set[2] = int(self.days_count.text())
-            data = user_defes.find_available_rooms(*self.tab_2_set)
-            user_defes.fill_table_widget_with_data(data, self.table_2)
-        except Exception as e:
-            print(e)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

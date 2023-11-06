@@ -2,7 +2,7 @@ import init_django_orm  # noqa: F401
 import db.models
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from defes import user_defes
+from defes import user_defes,general_defes
 from defes.user_win_defes import click_butt
 
 
@@ -956,11 +956,17 @@ class User_Win(object):
         try:
             self.tab_2_set[2] = int(self.days_count.text())
             data = user_defes.find_available_rooms(*self.tab_2_set)
-            user_defes.fill_table_widget_with_data(data, self.table_2)
+            general_defes.fill_table_widget_with_data(data, self.table_2)
         except Exception as e:
             print(e)
 
-
+    def tab_1_show_rooms_def(self):
+        try:
+            self.tab_1_set[2] = int(self.days_count.text())
+            data = user_defes.find_available_rooms(*self.tab_2_set)
+            general_defes.fill_table_widget_with_data(data, self.table_2)
+        except Exception as e:
+            print(e)
 
 
     def retranslateUi(self, MainWindow):

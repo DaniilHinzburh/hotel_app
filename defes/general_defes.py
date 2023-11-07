@@ -6,27 +6,30 @@ from decimal import Decimal
 
 
 def fill_table_widget_with_data(queryset, table_widget):
-    table_widget.clearContents()
-    # Получаем данные из queryset
-    data = list(queryset)
+    try:
+        table_widget.clearContents()
+        # Получаем данные из queryset
+        data = list(queryset)
 
-    if not data:
-        return  # Если queryset пустой, не выполняем никаких действий
+        if not data:
+            return  # Если queryset пустой, не выполняем никаких действий
 
-    # Устанавливаем количество строк и столбцов в виджете таблицы
-    table_widget.setRowCount(len(data))
-    table_widget.setColumnCount(len(data[0]))
+        # Устанавливаем количество строк и столбцов в виджете таблицы
+        table_widget.setRowCount(len(data))
+        table_widget.setColumnCount(len(data[0]))
 
-    # Получаем заголовки столбцов из ключей первой записи
-    headers = list(data[0].keys())
-    table_widget.setHorizontalHeaderLabels(headers)
+        # Получаем заголовки столбцов из ключей первой записи
+        headers = list(data[0].keys())
+        table_widget.setHorizontalHeaderLabels(headers)
 
-    # Заполняем таблицу данными из queryset
-    for row_index, row_data in enumerate(data):
-        for col_index, field_name in enumerate(row_data.keys()):
-            value = row_data[field_name]
-            table_item = QtWidgets.QTableWidgetItem(str(value))
-            table_widget.setItem(row_index, col_index, table_item)
+        # Заполняем таблицу данными из queryset
+        for row_index, row_data in enumerate(data):
+            for col_index, field_name in enumerate(row_data.keys()):
+                value = row_data[field_name]
+                table_item = QtWidgets.QTableWidgetItem(str(value))
+                table_widget.setItem(row_index, col_index, table_item)
+    except Exception as e:
+        print(e)
 
 
 def count_total_price(number, num_days=None, check_in_date=None, check_out_date=None):

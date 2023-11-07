@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QMainWindow
 
 from Windows.create_user_win import create_user_win_MainWindow
 from Windows.user_win import User_Win
+from Windows.admin_win import Admin_win
 from defes import sing_in_user
 
 
@@ -170,7 +171,12 @@ class Ui_MainWindow(object):
         User_Win.user = self.user
         self.ui.setupUi(self.window)
         self.window.show()
-
+    def open_admin_window(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Admin_win()
+        Admin_win.user = self.user
+        self.ui.setupUi(self.window)
+        self.window.show()
     def err(self, text: str):
         self.err_label.setText(text)
 
@@ -179,7 +185,10 @@ class Ui_MainWindow(object):
         if self.user is None:
             self.err("Помилка! Профіль не знайдено, або пароль не вірний.")
         else:
-            self.open_user_window()
+            if self.user.is_admin:
+                self.open_admin_window()
+            else:
+                self.open_user_window()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

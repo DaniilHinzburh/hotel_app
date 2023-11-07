@@ -4,7 +4,7 @@ from datetime import date, datetime
 import init_django_orm  # noqa: F401
 from PyQt5 import QtWidgets
 from Windows.start_win import Ui_MainWindow
-from db.models import Reservation, User, Room
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

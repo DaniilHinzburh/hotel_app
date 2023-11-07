@@ -446,7 +446,8 @@ class User_Win(object):
         self.table_1.setObjectName("table_1")
         self.table_1.setColumnCount(0)
         self.table_1.setRowCount(0)
-        self.table_1.setStyleSheet("QTableWidget {color: DarkBlue;font-size: 24px;} QTableWidget::item {font-weight: bold;}")
+        self.table_1.setStyleSheet(
+            "QTableWidget {color: DarkBlue;font-size: 24px;} QTableWidget::item {font-weight: bold;}")
         header = self.table_1.horizontalHeader()
         header.setFont(QtGui.QFont("Arial", 14))
         self.table_1.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
@@ -785,7 +786,8 @@ class User_Win(object):
         self.table_2.setObjectName("table_2")
         self.table_2.setColumnCount(0)
         self.table_2.setRowCount(0)
-        self.table_2.setStyleSheet("QTableWidget {color: DarkBlue;font-size: 24px;} QTableWidget::item {font-weight: bold;}")
+        self.table_2.setStyleSheet(
+            "QTableWidget {color: DarkBlue;font-size: 24px;} QTableWidget::item {font-weight: bold;}")
         header = self.table_2.horizontalHeader()
         header.setFont(QtGui.QFont("Arial", 14))
         self.table_2.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
@@ -882,7 +884,8 @@ class User_Win(object):
         self.table_3.setObjectName("table_3")
         self.table_3.setColumnCount(0)
         self.table_3.setRowCount(0)
-        self.table_3.setStyleSheet("QTableWidget {color: DarkBlue;font-size: 24px;} QTableWidget::item {font-weight: bold;}")
+        self.table_3.setStyleSheet(
+            "QTableWidget {color: DarkBlue;font-size: 24px;} QTableWidget::item {font-weight: bold;}")
         header = self.table_3.horizontalHeader()
         header.setFont(QtGui.QFont("Arial", 14))
         self.table_3.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
@@ -931,7 +934,8 @@ class User_Win(object):
         self.table_4.setObjectName("table_4")
         self.table_4.setColumnCount(0)
         self.table_4.setRowCount(0)
-        self.table_4.setStyleSheet("QTableWidget {color: DarkBlue;font-size: 24px;} QTableWidget::item {font-weight: bold;}")
+        self.table_4.setStyleSheet(
+            "QTableWidget {color: DarkBlue;font-size: 24px;} QTableWidget::item {font-weight: bold;}")
         header = self.table_4.horizontalHeader()
         header.setFont(QtGui.QFont("Arial", 14))
         self.table_4.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
@@ -1015,7 +1019,10 @@ class User_Win(object):
         # кнопки tab_3
 
         self.show_my_res.clicked.connect(lambda: self.tab_3_show_reservation())
-        self.delete_reservation_butt.clicked.connect(lambda :self.tab_3_delete_reservation())
+        self.delete_reservation_butt.clicked.connect(lambda: self.tab_3_delete_reservation())
+
+        # кнопки tab_4
+        self.show_my_disc_butt.clicked.connect(lambda :self.tab_4_show_discount())
 
     # методы
     def tab_1_show_rooms_def(self):
@@ -1057,9 +1064,12 @@ class User_Win(object):
         general_defes.fill_table_widget_with_data(general_defes.get_reservation(self.user), self.table_3)
 
     def tab_3_delete_reservation(self):
-        if self.id_res_text.text()!= "":
+        if self.id_res_text.text() != "":
             general_defes.delete_reservation(int(self.id_res_text.text()))
             self.id_res_text.setText("")
+
+    def tab_4_show_discount(self):
+        general_defes.fill_table_widget_with_data(user_defes.show_my_discount(self.user), self.table_4)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

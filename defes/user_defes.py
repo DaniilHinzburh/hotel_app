@@ -1,7 +1,7 @@
 import init_django_orm  # noqa: F401
 from PyQt5 import QtWidgets
 from datetime import date, timedelta, datetime
-from db.models import Room, Reservation
+from db.models import Room, Reservation, Discount
 from defes.general_defes import count_total_price, apply_discounts
 
 
@@ -24,3 +24,7 @@ def find_available_rooms(comfort, capacity, num_of_days=None, in_data=None, out_
             available_rooms = available_rooms.exclude(pk=room.pk)
 
     return available_rooms.values("number", "capacity", "comfort", "price")
+
+
+def show_my_discount(user):
+    return Discount.objects.filter(user=user).values("name", "percent")

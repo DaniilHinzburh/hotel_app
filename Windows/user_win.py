@@ -1002,7 +1002,8 @@ class User_Win(object):
 
         # кнопки tab_3
 
-        self.show_my_res.clicked.connect(lambda :self.tab_3_show_reservation())
+        self.show_my_res.clicked.connect(lambda: self.tab_3_show_reservation())
+        self.delete_reservation_butt.clicked.connect(lambda :self.tab_3_delete_reservation())
 
     # методы
     def tab_1_show_rooms_def(self):
@@ -1043,6 +1044,11 @@ class User_Win(object):
     def tab_3_show_reservation(self):
         general_defes.fill_table_widget_with_data(general_defes.get_reservation(self.user), self.table_3)
 
+    def tab_3_delete_reservation(self):
+        if self.id_res_text.text()!= "":
+            general_defes.delete_reservation(int(self.id_res_text.text()))
+            self.id_res_text.setText("")
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -1077,7 +1083,7 @@ class User_Win(object):
         self.show_rooms.setText(_translate("MainWindow", "Підібрати номери"))
         self.do_discounts.setText(_translate("MainWindow", "Застосувати знижки"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Зняти номер"))
-        self.label_20.setText(_translate("MainWindow", "Вкажіть id замолення"))
+        self.label_20.setText(_translate("MainWindow", "Вкажіть номер кімнати"))
         self.delete_reservation_butt.setText(_translate("MainWindow", "Видалити"))
         self.show_my_res.setText(_translate("MainWindow", "Показати мої бронювання"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Мої бронювання"))

@@ -170,20 +170,16 @@ class Ui_MainWindow(object):
         User_Win.user = self.user
         self.ui.setupUi(self.window)
         self.window.show()
-        try:
-            print(User_Win.user.first_name)
-        except Exception as e:
-            print(e)
-
 
     def err(self, text: str):
         self.err_label.setText(text)
 
     def user_in(self):
-        self.user = sing_in_user.user_found(self.phone_text.text(),self.pass_text.text())
+        self.user = sing_in_user.user_found(self.phone_text.text(), self.pass_text.text())
         if self.user is None:
             self.err("Помилка! Профіль не знайдено, або пароль не вірний.")
-        else: self.open_user_window()
+        else:
+            self.open_user_window()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

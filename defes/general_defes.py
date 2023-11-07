@@ -6,6 +6,7 @@ from decimal import Decimal
 
 
 def fill_table_widget_with_data(queryset, table_widget):
+    table_widget.clearContents()
     # Получаем данные из queryset
     data = list(queryset)
 
@@ -90,4 +91,21 @@ def apply_discounts(user, price):
 
 
 def get_reservation(user):
-    return Reservation.objects.filter(user=user).values("id", "room", "check_in_date", "check_out_date")
+    return Reservation.objects.filter(user=user).values("room", "check_in_date", "check_out_date")
+
+
+def delete_order(number: int):
+    try:
+        order = Order.objects.get(room=number)
+        order.delete()
+    except Exception:
+        pass
+
+
+def delete_reservation(number: int):
+    try:
+        reservation = Reservation.objects.get(room=number)
+        delete_order(number)
+        reservation.delete()
+    except Exception:
+        pass

@@ -23,7 +23,4 @@ def find_available_rooms(comfort, capacity, num_of_days=None, in_data=None, out_
         if reservations.exists():
             available_rooms = available_rooms.exclude(pk=room.pk)
 
-    return available_rooms
-
-
-
+    return available_rooms.values("number", "capacity", "comfort", "price")

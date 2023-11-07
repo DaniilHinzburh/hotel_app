@@ -998,7 +998,11 @@ class User_Win(object):
                 str(general_defes.count_total_price(int(self.number_text.text()), int(self.days_count.text())))))
         self.do_discounts.clicked.connect(
             lambda: self.price_text.setText(str(general_defes.apply_discounts(self.user, int(self.price_text.text())))))
-        self.create_order_butt.clicked.connect(lambda :self.tab_2_create_order_click())
+        self.create_order_butt.clicked.connect(lambda: self.tab_2_create_order_click())
+
+        # кнопки tab_3
+
+        self.show_my_res.clicked.connect(lambda :self.tab_3_show_reservation())
 
     # методы
     def tab_1_show_rooms_def(self):
@@ -1035,6 +1039,9 @@ class User_Win(object):
             datetime.now().date(),
             datetime.now().date() + timedelta(days=int(self.days_count.text())),
             Decimal(self.price_text.text()))
+
+    def tab_3_show_reservation(self):
+        general_defes.fill_table_widget_with_data(general_defes.get_reservation(self.user), self.table_3)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

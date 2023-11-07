@@ -956,14 +956,10 @@ class User_Win(object):
         self.tab_1_show_rooms.clicked.connect(lambda: self.tab_1_show_rooms_def())
 
         self.count_price_butt_3.clicked.connect(
-            lambda: self.price_text_3.setText(
-                str(general_defes.count_total_price(int(self.number_text_3.text()), None,
-                                                    datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
-                                                    datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date()))))
+            lambda: self.price_text_3.setText(self.tab_1_count_total_prise()))
 
         self.do_discounts_2.clicked.connect(
-            lambda: self.price_text_3.setText(
-                str(general_defes.apply_discounts(self.user, int(self.price_text_3.text())))))
+            lambda:self.tab_1_do_discounts())
 
         self.create_order_butt_3.clicked.connect(
             lambda: self.tab_1_create_order_click()
@@ -1003,9 +999,24 @@ class User_Win(object):
         # кнопки tab_3
 
         self.show_my_res.clicked.connect(lambda: self.tab_3_show_reservation())
-        self.delete_reservation_butt.clicked.connect(lambda :self.tab_3_delete_reservation())
+        self.delete_reservation_butt.clicked.connect(lambda: self.tab_3_delete_reservation())
 
     # методы
+    def tab_1_do_discounts(self):
+        if self.price_text_3.text() != "":
+            self.price_text_3.setText(
+                str(general_defes.apply_discounts(self.user, int(self.price_text_3.text()))))
+
+    def tab_1_count_total_prise(self):
+        if self.number_text_3.text() != "":
+            str(general_defes.count_total_price(
+                int(self.number_text_3.text()),
+                None,
+                datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
+                datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date()
+            )
+            )
+
     def tab_1_show_rooms_def(self):
         try:
             self.tab_1_set[3] = datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date()
@@ -1045,7 +1056,7 @@ class User_Win(object):
         general_defes.fill_table_widget_with_data(general_defes.get_reservation(self.user), self.table_3)
 
     def tab_3_delete_reservation(self):
-        if self.id_res_text.text()!= "":
+        if self.id_res_text.text() != "":
             general_defes.delete_reservation(int(self.id_res_text.text()))
             self.id_res_text.setText("")
 

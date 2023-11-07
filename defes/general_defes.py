@@ -42,7 +42,6 @@ def create_reservation(user, number, in_data, out_data, total_prise):
         check_out_date=out_data
     )
 
-
     reservation.save()
     create_order(user, number, in_data, out_data, total_prise)
 
@@ -82,3 +81,7 @@ def apply_discounts(user, price):
         final_price *= discount.percent
     final_price = round(final_price, 2)
     return final_price
+
+
+def get_reservation(user):
+    return Reservation.objects.filter(user=user)

@@ -50,6 +50,7 @@ def click_butt(self, set, elem, but_click, append, but_1, but_2):
 
 def green_butt(butt):
     butt.setEnabled(False)
+    butt.setText("Оформлено!")
     butt.setStyleSheet("QPushButton {\n"
                        "    color: DarkBlue;\n"
                        "    border: 3px solid bleak;\n"

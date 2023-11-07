@@ -85,7 +85,7 @@ def apply_discounts(user, price):
     if not user_discounts:
         return Decimal(price)
     for discount in user_discounts:
-        final_price *= discount.percent
+        final_price *= (100 - discount.percent)/100
     final_price = round(final_price, 2)
     return final_price
 
@@ -109,3 +109,7 @@ def delete_reservation(number: int):
         reservation.delete()
     except Exception:
         pass
+
+
+def get_user_discounts(user):
+    return Discount.objects.filter(user=user).values("name", "percent")

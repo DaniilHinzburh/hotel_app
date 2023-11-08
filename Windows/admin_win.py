@@ -1,12 +1,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from defes import general_defes, win_defes, admin_defes
 from db.models import Room, Reservation, Discount, User
+from decimal import Decimal
 
 
 class Admin_win(object):
     user = None
     room = None
     discount = None
+
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(800, 800)
@@ -1300,6 +1302,10 @@ class Admin_win(object):
         self.tab_2_create_room_butt.clicked.connect(lambda: self.tab_2_create_room_butt_clicked())
         # кнопки tab_3
         self.tab_3_show_table_dis_butt.clicked.connect(lambda: self.tab_3_show_table_dis_butt_clicked())
+        self.tab_3_get_dis_butt.clicked.connect(lambda: self.tab_3_get_dis_butt_clicked())
+        self.tab_3_delete_butt.clicked.connect(lambda: self.tab_3_delete_butt_clicked())
+        self.tab_3_update_dis_butt.clicked.connect(lambda: self.tab_3_update_dis_butt_clicked())
+        self.tab_3_create_dis_butt.clicked.connect(lambda :self.tab_3_create_dis_butt_clicked())
         # кнопки tab_4
 
         # кнопки tab_5
@@ -1409,11 +1415,44 @@ class Admin_win(object):
     def tab_3_show_table_dis_butt_clicked(self):
         queryset = Discount.objects.filter().values("name", "percent")
         general_defes.fill_table_widget_with_data(queryset, self.table_dis)
+        win_defes.beack_to_normal_butt_admin(self.tab_3_create_dis_butt)
 
     def tab_3_get_dis_butt_clicked(self):
-        self.discount = Discount.objects.get(name=str(self.tab_3_name_dis.text()))
-        self.tab_3_name_dis_2.setText(self.discount.name)
-        self.tab_3_percent_dis.setText(str(self.discount.percent))
+        try:
+            self.discount = Discount.objects.get(name=str(self.tab_3_name_dis.text()))
+            self.tab_3_name_dis_2.setText(self.discount.name)
+            self.tab_3_percent_dis.setText(str(self.discount.percent))
+            win_defes.beack_to_normal_butt_admin(self.tab_3_update_dis_butt)
+            win_defes.beack_to_normal_butt_admin(self.tab_3_delete_butt)
+        except Exception as e:
+            print(e)
+
+    def tab_3_delete_butt_clicked(self):
+        try:
+            self.discount.delete()
+            win_defes.green_butt_admin(self.tab_3_delete_butt)
+        except Exception as e:
+            print(e)
+
+    def tab_3_update_dis_butt_clicked(self):
+        try:
+            self.discount.name = self.tab_3_name_dis_2.text()
+            self.discount.percent = Decimal(self.tab_3_percent_dis.text())
+            win_defes.green_butt_admin(self.tab_3_update_dis_butt)
+            self.discount.save()
+        except Exception as e:
+            print(e)
+
+    def tab_3_create_dis_butt_clicked(self):
+        try:
+            new_dis = Discount(
+                name=self.tab_3_name_new_dis.text(),
+                percent=Decimal(self.tab_3_percent_new_dis.text())
+            )
+            new_dis.save()
+            win_defes.green_butt_admin(self.tab_3_create_dis_butt)
+        except Exception as e:
+            print(e)
 
     # методы tab_4
 

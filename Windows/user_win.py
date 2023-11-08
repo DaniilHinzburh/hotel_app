@@ -973,13 +973,13 @@ class User_Win(object):
 
         self.count_price_butt_3.clicked.connect(
             lambda: self.price_text_3.setText(
-                str(general_defes.count_total_price(int(self.number_text_3.text()), None,
+                str(user_defes.count_total_price(int(self.number_text_3.text()), None,
                                                     datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
                                                     datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date()))))
 
         self.do_discounts_2.clicked.connect(
             lambda: self.price_text_3.setText(
-                str(general_defes.apply_discounts(self.user, int(self.price_text_3.text())))))
+                str(user_defes.apply_discounts(self.user, int(self.price_text_3.text())))))
 
         self.create_order_butt_3.clicked.connect(
             lambda: self.tab_1_create_order_click()

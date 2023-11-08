@@ -2,7 +2,6 @@ import init_django_orm  # noqa: F401
 from PyQt5 import QtWidgets
 from datetime import date, timedelta, datetime
 from db.models import Room, Reservation, Discount, User, Settlement
-from Windows.admin_win import Admin_win
 from defes import general_defes
 
 

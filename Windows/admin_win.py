@@ -1346,11 +1346,11 @@ class Admin_win(object):
         win_defes.green_butt_admin(self.tab_1_delete_user_dutt)
 
     def tab_1_dell_dis_butt_clicked(self):
-        admin_defes.delete_user_disc(self.user, self.tab_1_dis_name)
+        admin_defes.delete_user_disc(self.user, self.tab_1_dis_name.text())
         win_defes.green_butt_admin(self.tab_1_dell_dis_butt)
 
     def tab_1_add_dis_butt_clicked(self):
-        admin_defes.add_discount_to_user(self.user, self.tab_1_dis_name)
+        admin_defes.add_discount_to_user(self.user, self.tab_1_dis_name.text())
         win_defes.green_butt_admin(self.tab_1_add_dis_butt)
 
     # методы tab_2

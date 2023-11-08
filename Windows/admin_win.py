@@ -1293,7 +1293,9 @@ class Admin_win(object):
         self.tab_1_dell_dis_butt.clicked.connect(lambda: self.tab_1_dell_dis_butt_clicked())
         self.tab_1_add_dis_butt.clicked.connect(lambda: self.tab_1_add_dis_butt_clicked())
         # кнопки tab_2
-        
+        self.tab_2_show_table_room.clicked.connect(lambda :self.tab_2_show_table_room_clicked())
+        self.tab_2_get_room_butt.clicked.connect(lambda :self.tab_2_get_room_butt_clicked())
+
         # кнопки tab_3
 
         # кнопки tab_4

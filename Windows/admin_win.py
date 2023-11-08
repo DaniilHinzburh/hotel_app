@@ -6,7 +6,7 @@ from db.models import Room, Reservation, Discount, User
 class Admin_win(object):
     user = None
     room = None
-
+    discount = None
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(800, 800)
@@ -709,7 +709,7 @@ class Admin_win(object):
         header.setFont(QtGui.QFont("Arial", 14))
         self.table_dis.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.tab_3_update_dis_butt = QtWidgets.QPushButton(self.tab_3)
-        self.tab_3_update_dis_butt.setEnabled(False)
+        self.tab_3_update_dis_butt.setEnabled(True)
         self.tab_3_update_dis_butt.setGeometry(QtCore.QRect(250, 370, 221, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -821,7 +821,7 @@ class Admin_win(object):
                                               "")
         self.tab_3_get_dis_butt.setObjectName("tab_3_get_dis_butt")
         self.tab_3_create_dis_butt = QtWidgets.QPushButton(self.tab_3)
-        self.tab_3_create_dis_butt.setEnabled(False)
+        self.tab_3_create_dis_butt.setEnabled(True)
         self.tab_3_create_dis_butt.setGeometry(QtCore.QRect(280, 600, 221, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -884,7 +884,7 @@ class Admin_win(object):
         self.tab_3_percent_new_dis.setAlignment(QtCore.Qt.AlignCenter)
         self.tab_3_percent_new_dis.setObjectName("tab_3_percent_new_dis")
         self.tab_3_delete_butt = QtWidgets.QPushButton(self.tab_3)
-        self.tab_3_delete_butt.setEnabled(False)
+        self.tab_3_delete_butt.setEnabled(True)
         self.tab_3_delete_butt.setGeometry(QtCore.QRect(250, 320, 221, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -1299,7 +1299,7 @@ class Admin_win(object):
         self.tab_2_update_room_butt.clicked.connect(lambda: self.tab_2_update_room_butt_clicked())
         self.tab_2_create_room_butt.clicked.connect(lambda: self.tab_2_create_room_butt_clicked())
         # кнопки tab_3
-
+        self.tab_3_show_table_dis_butt.clicked.connect(lambda: self.tab_3_show_table_dis_butt_clicked())
         # кнопки tab_4
 
         # кнопки tab_5
@@ -1406,6 +1406,14 @@ class Admin_win(object):
             print(e)
 
     # методы tab_3
+    def tab_3_show_table_dis_butt_clicked(self):
+        queryset = Discount.objects.filter().values("name", "percent")
+        general_defes.fill_table_widget_with_data(queryset, self.table_dis)
+
+    def tab_3_get_dis_butt_clicked(self):
+        self.discount = Discount.objects.get(name=str(self.tab_3_name_dis.text()))
+        self.tab_3_name_dis_2.setText(self.discount.name)
+        self.tab_3_percent_dis.setText(str(self.discount.percent))
 
     # методы tab_4
 

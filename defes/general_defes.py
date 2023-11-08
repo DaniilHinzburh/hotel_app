@@ -88,7 +88,7 @@ def apply_discounts(user, price):
     if not user_discounts:
         return Decimal(price)
     for discount in user_discounts:
-        final_price *= (100 - discount.percent)/100
+        final_price *= (100 - discount.percent) / 100
     final_price = round(final_price, 2)
     return final_price
 
@@ -115,4 +115,22 @@ def delete_reservation(number: int):
 
 
 def get_user_discounts(user):
-    return Discount.objects.filter(user=user).values("name", "percent")
+    try:
+        return Discount.objects.filter(user=user).values("name", "percent")
+    except Exception as e:
+        print(e)
+
+
+def get_user_by_passport(passport):
+    try:
+        return User.objects.get(passport=passport)
+    except Exception as e:
+        print(e)
+
+
+
+def delete_user(user):
+    Reservation.objects.filter(user_id=user.id).delete()
+    Reservation.objects.filter(user_id=user.id).delete()
+    Settlement.objects.filter(user_id=user.id).delete()
+    user.delete()

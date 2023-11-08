@@ -85,20 +85,20 @@ class Admin_win(object):
                                                        "}\n"
                                                        "")
         self.tab_1_show_table_useer_butt.setObjectName("tab_1_show_table_useer_butt")
-        self.tab_1_phone_in = QtWidgets.QLineEdit(self.tab_1)
-        self.tab_1_phone_in.setGeometry(QtCore.QRect(210, 240, 261, 41))
+        self.tab_1_passport_in = QtWidgets.QLineEdit(self.tab_1)
+        self.tab_1_passport_in.setGeometry(QtCore.QRect(210, 240, 261, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.tab_1_phone_in.setFont(font)
-        self.tab_1_phone_in.setStyleSheet("color: rgb(172, 85, 27) ;\n"
-                                          "border: 3px solid bleak;\n"
-                                          "border-radius: 20px;\n"
-                                          "background-color: rgb(238, 238, 238);\n"
-                                          "")
-        self.tab_1_phone_in.setAlignment(QtCore.Qt.AlignCenter)
-        self.tab_1_phone_in.setObjectName("tab_1_phone_in")
+        self.tab_1_passport_in.setFont(font)
+        self.tab_1_passport_in.setStyleSheet("color: rgb(172, 85, 27) ;\n"
+                                             "border: 3px solid bleak;\n"
+                                             "border-radius: 20px;\n"
+                                             "background-color: rgb(238, 238, 238);\n"
+                                             "")
+        self.tab_1_passport_in.setAlignment(QtCore.Qt.AlignCenter)
+        self.tab_1_passport_in.setObjectName("tab_1_passport_in")
         self.label_10 = QtWidgets.QLabel(self.tab_1)
         self.label_10.setGeometry(QtCore.QRect(18, 240, 181, 41))
         font = QtGui.QFont()
@@ -1287,6 +1287,9 @@ class Admin_win(object):
 
         # кнопки tab_1
         self.tab_1_show_table_useer_butt.clicked.connect(lambda: self.tab_1_show_table_user())
+        self.tab_1_get_user_butt.clicked.connect(lambda: self.tab_1_get_user_butt_clicked())
+        self.tab_1_update_user_butt.clicked.connect(lambda: self.tab_1_update_user_butt_clicked())
+        self.tab_1_delete_user_dutt.clicked.connect(lambda :self.user.delete())
         # кнопки tab_2
 
         # кнопки tab_3
@@ -1304,6 +1307,27 @@ class Admin_win(object):
                                                 "comment")
         general_defes.fill_table_widget_with_data(queryset, self.table_user)
 
+    def tab_1_get_user_butt_clicked(self):
+        self.user = general_defes.get_user_by_passport(self.tab_1_passport_in.text())
+        self.tab_1_first_name.setText(self.user.first_name)
+        self.tab_1_last_name.setText(self.user.last_name)
+        self.tab_1_password.setText(self.user.password)
+        self.tab_1_phone.setText(self.user.phone)
+        self.tab_1_adress.setText(self.user.address)
+        self.tab_1_comment.setText(self.user.comment)
+        general_defes.fill_table_widget_with_data(general_defes.get_user_discounts(self.user), self.table_user_dis)
+        self.tab_1_update_user_butt.setEnabled(True)
+        self.tab_1_delete_user_dutt.setEnabled(True)
+
+    def tab_1_update_user_butt_clicked(self):
+        self.user.first_name = self.tab_1_first_name.text()
+        self.user.last_name = self.tab_1_last_name.text()
+        self.user.password = self.tab_1_password.text()
+        self.user.phone = self.tab_1_phone.text()
+        self.user.address = self.tab_1_adress.text()
+        self.user.comment = self.tab_1_comment.text()
+        self.user.save()
+
     # методы tab_2
 
     # методы tab_3
@@ -1317,7 +1341,7 @@ class Admin_win(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.tab_1_show_table_useer_butt.setText(_translate("Dialog", "Вивести данні всіх користувачів"))
-        self.label_10.setText(_translate("Dialog", "Номер телефона:"))
+        self.label_10.setText(_translate("Dialog", "Номер паспорту:"))
         self.tab_1_delete_user_dutt.setText(_translate("Dialog", "Видалити користувача"))
         self.tab_1_get_user_butt.setText(_translate("Dialog", "Отримати данні користувача"))
         self.tab_1_update_user_butt.setText(_translate("Dialog", "Змінити данні"))

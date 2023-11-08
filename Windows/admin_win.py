@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from defes import general_defes, win_defes
+from defes import general_defes, win_defes,admin_defes
 from db.models import Room, Reservation, Discount, User
 
 
@@ -1308,7 +1308,7 @@ class Admin_win(object):
         general_defes.fill_table_widget_with_data(queryset, self.table_user)
 
     def tab_1_get_user_butt_clicked(self):
-        self.user = general_defes.get_user_by_passport(self.tab_1_passport_in.text())
+        self.user = admin_defes.get_user_by_passport(self.tab_1_passport_in.text())
         self.tab_1_first_name.setText(self.user.first_name)
         self.tab_1_last_name.setText(self.user.last_name)
         self.tab_1_password.setText(self.user.password)

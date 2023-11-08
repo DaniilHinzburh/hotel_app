@@ -1011,9 +1011,9 @@ class User_Win(object):
 
         self.count_price_butt.clicked.connect(
             lambda: self.price_text.setText(
-                str(general_defes.count_total_price(int(self.number_text.text()), int(self.days_count.text())))))
+                str(user_defes.count_total_price(int(self.number_text.text()), int(self.days_count.text())))))
         self.do_discounts.clicked.connect(
-            lambda: self.price_text.setText(str(general_defes.apply_discounts(self.user, int(self.price_text.text())))))
+            lambda: self.price_text.setText(str(user_defes.apply_discounts(self.user, int(self.price_text.text())))))
         self.create_order_butt.clicked.connect(lambda: self.tab_2_create_order_click())
 
         # кнопки tab_3
@@ -1044,7 +1044,7 @@ class User_Win(object):
 
     def tab_1_create_order_click(self):
         green_butt(self.create_order_butt_3)
-        general_defes.create_reservation(
+        user_defes.create_reservation(
             self.user,
             int(self.number_text_3.text()),
             datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
@@ -1053,7 +1053,7 @@ class User_Win(object):
 
     def tab_2_create_order_click(self):
         green_butt(self.create_order_butt)
-        general_defes.create_reservation(
+        user_defes.create_reservation(
             self.user,
             int(self.number_text.text()),
             datetime.now().date(),
@@ -1061,11 +1061,11 @@ class User_Win(object):
             Decimal(self.price_text.text()))
 
     def tab_3_show_reservation(self):
-        general_defes.fill_table_widget_with_data(general_defes.get_reservation(self.user), self.table_3)
+        general_defes.fill_table_widget_with_data(user_defes.get_reservation(self.user), self.table_3)
 
     def tab_3_delete_reservation(self):
         if self.id_res_text.text() != "":
-            general_defes.delete_reservation(int(self.id_res_text.text()))
+            user_defes.delete_reservation(int(self.id_res_text.text()))
             self.id_res_text.setText("")
 
     def tab_4_show_discount(self):

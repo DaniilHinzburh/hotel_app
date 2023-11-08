@@ -1391,7 +1391,7 @@ class Admin_win(object):
         self.tab_3_get_dis_butt.setText(_translate("Dialog", "Отримати данні знижки"))
         self.tab_3_create_dis_butt.setText(_translate("Dialog", "Сворити"))
         self.label_19.setText(_translate("Dialog", "Назва нової знижки:"))
-        self.tab_3_delete_butt.setText(_translate("Dialog", "Видалити кімнату"))
+        self.tab_3_delete_butt.setText(_translate("Dialog", "Видалити знижку"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("Dialog", "Список знижок"))
         self.label_20.setText(_translate("Dialog", "id"))
         self.tab_4_show_table_res_butt.setText(_translate("Dialog", "Вивести список бронювань"))

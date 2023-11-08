@@ -24,11 +24,11 @@ class Room(models.Model):  #
     comfort = models.CharField(max_length=20, default="standard")
     price = models.IntegerField(default=100)
     is_free = models.BooleanField(default=True)
-    user_id = models.ForeignKey(User, default=None, null=True, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, default=None, null=True, on_delete=models.SET_NULL)
 
 
 class Settlement(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     check_in_date = models.DateField()
     check_out_date = models.DateField(null=True)

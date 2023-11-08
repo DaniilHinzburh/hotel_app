@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from defes import general_defes
+from defes import general_defes, win_defes
 from db.models import Room, Reservation, Discount, User
 
 
@@ -1289,7 +1289,7 @@ class Admin_win(object):
         self.tab_1_show_table_useer_butt.clicked.connect(lambda: self.tab_1_show_table_user())
         self.tab_1_get_user_butt.clicked.connect(lambda: self.tab_1_get_user_butt_clicked())
         self.tab_1_update_user_butt.clicked.connect(lambda: self.tab_1_update_user_butt_clicked())
-        self.tab_1_delete_user_dutt.clicked.connect(lambda :self.user.delete())
+        self.tab_1_delete_user_dutt.clicked.connect(lambda: self.tab_1_delete_user_butt_clicked())
         # кнопки tab_2
 
         # кнопки tab_3
@@ -1318,8 +1318,11 @@ class Admin_win(object):
         general_defes.fill_table_widget_with_data(general_defes.get_user_discounts(self.user), self.table_user_dis)
         self.tab_1_update_user_butt.setEnabled(True)
         self.tab_1_delete_user_dutt.setEnabled(True)
+        win_defes.beack_to_normal_butt_admin(self.tab_1_delete_user_dutt)
+        win_defes.beack_to_normal_butt_admin(self.tab_1_update_user_butt)
 
     def tab_1_update_user_butt_clicked(self):
+        win_defes.green_butt_admin(self.tab_1_update_user_butt)
         self.user.first_name = self.tab_1_first_name.text()
         self.user.last_name = self.tab_1_last_name.text()
         self.user.password = self.tab_1_password.text()
@@ -1327,6 +1330,16 @@ class Admin_win(object):
         self.user.address = self.tab_1_adress.text()
         self.user.comment = self.tab_1_comment.text()
         self.user.save()
+
+    def tab_1_delete_user_butt_clicked(self):
+        self.user.delete()
+        self.tab_1_first_name.setText("")
+        self.tab_1_last_name.setText("")
+        self.tab_1_password.setText("")
+        self.tab_1_phone.setText("")
+        self.tab_1_adress.setText("")
+        self.tab_1_comment.setText("")
+        win_defes.green_butt_admin(self.tab_1_delete_user_dutt)
 
     # методы tab_2
 

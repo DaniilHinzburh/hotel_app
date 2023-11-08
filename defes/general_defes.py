@@ -128,9 +128,5 @@ def get_user_by_passport(passport):
         print(e)
 
 
-
 def delete_user(user):
-    Reservation.objects.filter(user_id=user.id).delete()
-    Reservation.objects.filter(user_id=user.id).delete()
-    Settlement.objects.filter(user_id=user.id).delete()
     user.delete()

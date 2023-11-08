@@ -3,7 +3,7 @@ import db.models
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from defes import user_defes, general_defes
-from defes.user_win_defes import click_butt, green_butt
+from defes.win_defes import click_butt, green_butt
 from datetime import date, timedelta, datetime
 from decimal import Decimal
 

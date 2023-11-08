@@ -1348,12 +1348,56 @@ class Admin_win(object):
     def tab_1_dell_dis_butt_clicked(self):
         admin_defes.delete_user_disc(self.user, self.tab_1_dis_name.text())
         win_defes.green_butt_admin(self.tab_1_dell_dis_butt)
+
     def tab_1_add_dis_butt_clicked(self):
         admin_defes.add_discount_to_user(self.user, self.tab_1_dis_name.text())
         win_defes.green_butt_admin(self.tab_1_add_dis_butt)
 
     # методы tab_2
+    def tab_2_show_table_room_clicked(self):
+        queryset = Room.objects.filter().values("id", "number", "capacity", "comfort", "price", "is_free",
+                                                 "user_id__passport")
+        general_defes.fill_table_widget_with_data(queryset, self.table_room)
 
+    def tab_2_get_room_butt_clicked(self):
+        try:
+            self.room = Room.objects.get(number=int(self.tab_2_number_in.text()))
+            win_defes.beack_to_normal_butt_admin(self.tab_2_delete_room_butt)
+            win_defes.beack_to_normal_butt_admin(self.tab_2_update_room_butt)
+            win_defes.beack_to_normal_butt_admin(self.tab_2_create_room_butt)
+            self.tab_2_capacity.setText(str(self.room.capacity))
+            self.tab_2_comfort.setText(str(self.room.comfort))
+            self.tab_2_price.setText(str(self.room.price))
+        except Exception as e:
+            print(e)
+
+    def tab_2_delete_room_butt_clicked(self):
+        try:
+            self.room.delete()
+            win_defes.green_butt_admin(self.tab_2_delete_room_butt)
+        except Exception as e:
+            print(e)
+
+    def tab_2_update_room_butt_clicked(self):
+        try:
+            self.room.capacity = int(self.tab_2_capacity.text())
+            self.room.comfort = self.tab_2_comfort.text()
+            self.room.price = int(self.tab_2_price.text())
+            win_defes.green_butt_admin(self.tab_2_update_room_butt)
+            self.room.save()
+        except Exception as e:
+            print(e)
+
+    def tab_2_create_room_butt_clicked(self):
+        try:
+            win_defes.green_butt_admin(self.tab_2_create_room_butt)
+            new_room = Room
+            new_room.number = int(self.tab_2_number_new_room.text())
+            new_room.capacity = int(self.tab_2_capacity_new_room.text())
+            new_room.comfort = self.tab_2_comfort_new_room.text()
+            new_room.price = int(self.tab_2_price_new_room.text())
+        except Exception as e:
+            print(e)
     # методы tab_3
 
     # методы tab_4

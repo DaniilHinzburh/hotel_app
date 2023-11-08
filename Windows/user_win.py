@@ -1,6 +1,4 @@
 import init_django_orm  # noqa: F401
-import db.models
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from defes import user_defes, general_defes
 from defes.win_defes import click_butt, green_butt

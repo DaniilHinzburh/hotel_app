@@ -1,7 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from defes import general_defes, win_defes, admin_defes
-from db.models import Room, Reservation, Discount, User, Order
+from db.models import Room, Reservation, Discount, User, Order, Settlement
 from decimal import Decimal
+from datetime import datetime
 
 
 class Admin_win(object):
@@ -1076,20 +1077,20 @@ class Admin_win(object):
                                                             "}\n"
                                                             "")
         self.tab_6_show_table_settlement_butt.setObjectName("tab_6_show_table_settlement_butt")
-        self.tab_6_phone_on_sett = QtWidgets.QLineEdit(self.tab_7)
-        self.tab_6_phone_on_sett.setGeometry(QtCore.QRect(210, 280, 191, 41))
+        self.tab_6_passport_on_sett = QtWidgets.QLineEdit(self.tab_7)
+        self.tab_6_passport_on_sett.setGeometry(QtCore.QRect(210, 280, 191, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.tab_6_phone_on_sett.setFont(font)
-        self.tab_6_phone_on_sett.setStyleSheet("color: rgb(172, 85, 27) ;\n"
-                                               "border: 3px solid bleak;\n"
-                                               "border-radius: 20px;\n"
-                                               "background-color: rgb(238, 238, 238);\n"
-                                               "")
-        self.tab_6_phone_on_sett.setAlignment(QtCore.Qt.AlignCenter)
-        self.tab_6_phone_on_sett.setObjectName("tab_6_phone_on_sett")
+        self.tab_6_passport_on_sett.setFont(font)
+        self.tab_6_passport_on_sett.setStyleSheet("color: rgb(172, 85, 27) ;\n"
+                                                  "border: 3px solid bleak;\n"
+                                                  "border-radius: 20px;\n"
+                                                  "background-color: rgb(238, 238, 238);\n"
+                                                  "")
+        self.tab_6_passport_on_sett.setAlignment(QtCore.Qt.AlignCenter)
+        self.tab_6_passport_on_sett.setObjectName("tab_6_passport_on_sett")
         self.label_21 = QtWidgets.QLabel(self.tab_7)
         self.label_21.setGeometry(QtCore.QRect(20, 280, 181, 41))
         font = QtGui.QFont()
@@ -1104,7 +1105,7 @@ class Admin_win(object):
         self.label_21.setAlignment(QtCore.Qt.AlignCenter)
         self.label_21.setObjectName("label_21")
         self.tab_6_on_sett_butt = QtWidgets.QPushButton(self.tab_7)
-        self.tab_6_on_sett_butt.setEnabled(False)
+        self.tab_6_on_sett_butt.setEnabled(True)
         self.tab_6_on_sett_butt.setGeometry(QtCore.QRect(460, 340, 281, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -1206,20 +1207,20 @@ class Admin_win(object):
                                                      "")
         self.tab_6_room_num_close_sett.setAlignment(QtCore.Qt.AlignCenter)
         self.tab_6_room_num_close_sett.setObjectName("tab_6_room_num_close_sett")
-        self.tab_6_phone_close_sett = QtWidgets.QLineEdit(self.tab_7)
-        self.tab_6_phone_close_sett.setGeometry(QtCore.QRect(210, 540, 191, 41))
+        self.tab_6_passport_close_sett = QtWidgets.QLineEdit(self.tab_7)
+        self.tab_6_passport_close_sett.setGeometry(QtCore.QRect(210, 540, 191, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.tab_6_phone_close_sett.setFont(font)
-        self.tab_6_phone_close_sett.setStyleSheet("color: rgb(172, 85, 27) ;\n"
-                                                  "border: 3px solid bleak;\n"
-                                                  "border-radius: 20px;\n"
-                                                  "background-color: rgb(238, 238, 238);\n"
-                                                  "")
-        self.tab_6_phone_close_sett.setAlignment(QtCore.Qt.AlignCenter)
-        self.tab_6_phone_close_sett.setObjectName("tab_6_phone_close_sett")
+        self.tab_6_passport_close_sett.setFont(font)
+        self.tab_6_passport_close_sett.setStyleSheet("color: rgb(172, 85, 27) ;\n"
+                                                     "border: 3px solid bleak;\n"
+                                                     "border-radius: 20px;\n"
+                                                     "background-color: rgb(238, 238, 238);\n"
+                                                     "")
+        self.tab_6_passport_close_sett.setAlignment(QtCore.Qt.AlignCenter)
+        self.tab_6_passport_close_sett.setObjectName("tab_6_passport_close_sett")
         self.label_26 = QtWidgets.QLabel(self.tab_7)
         self.label_26.setGeometry(QtCore.QRect(20, 540, 181, 41))
         font = QtGui.QFont()
@@ -1247,7 +1248,7 @@ class Admin_win(object):
         self.label_27.setAlignment(QtCore.Qt.AlignCenter)
         self.label_27.setObjectName("label_27")
         self.tab_6_close_sett_butt = QtWidgets.QPushButton(self.tab_7)
-        self.tab_6_close_sett_butt.setEnabled(False)
+        self.tab_6_close_sett_butt.setEnabled(True)
         self.tab_6_close_sett_butt.setGeometry(QtCore.QRect(450, 570, 281, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -1312,6 +1313,9 @@ class Admin_win(object):
         # кнопки tab_5
         self.tab_5_show_table_order_butt.clicked.connect(lambda: self.tab_5_show_table_order_butt_clicked())
         # кнопки tab_6
+        self.tab_6_show_table_settlement_butt.clicked.connect(lambda: self.tab_6_show_table_settlement_butt_clicked())
+        self.tab_6_on_sett_butt.clicked.connect(lambda :self.tab_6_on_sett_butt_clicked())
+        self.tab_6_close_sett_butt.clicked.connect(lambda :self.tab_6_close_sett_butt_clicked())
 
     # методы tab_1
     def tab_1_show_table_user(self):
@@ -1478,6 +1482,33 @@ class Admin_win(object):
         general_defes.fill_table_widget_with_data(queryset, self.table_order)
 
     # методы tab_6
+    def tab_6_show_table_settlement_butt_clicked(self):
+        queryset = Settlement.objects.filter().values("user__passport", "room__number", "check_in_date",
+                                                      "check_out_date")
+        general_defes.fill_table_widget_with_data(queryset, self.table_settlement)
+
+    def tab_6_on_sett_butt_clicked(self):
+        try:
+            settlement = Settlement(
+                user=admin_defes.get_user_by_passport(self.tab_6_passport_on_sett.text()),
+                room=Room.objects.get(number=int(self.tab_6_room_num_on_sett.text())),
+                check_in_date=datetime.strptime(self.tab_6_data_in.text(), "%Y-%m-%d").date()
+            )
+            settlement.save()
+            win_defes.green_butt_admin(self.tab_6_on_sett_butt)
+        except Exception as e:
+            print(e)
+
+    def tab_6_close_sett_butt_clicked(self):
+        try:
+            win_defes.green_butt_admin(self.tab_6_close_sett_butt)
+            settlement = Settlement.objects.get(user__passport=self.tab_6_passport_close_sett.text(),
+                                                room__number=int(self.tab_6_room_num_close_sett.text()))
+            settlement.check_out_date = datetime.now().date()
+            settlement.save()
+        except Exception as e:
+            print(e)
+
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
@@ -1517,12 +1548,12 @@ class Admin_win(object):
         self.tab_5_show_table_order_butt.setText(_translate("Dialog", "Вивести список бронювань"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("Dialog", "Список замовленнь"))
         self.tab_6_show_table_settlement_butt.setText(_translate("Dialog", "Вивести список заселень"))
-        self.label_21.setText(_translate("Dialog", "Номер телефона:"))
+        self.label_21.setText(_translate("Dialog", "Номер паспорту:"))
         self.tab_6_on_sett_butt.setText(_translate("Dialog", "Відкрити"))
         self.label_22.setText(_translate("Dialog", "Відкрити заселення :"))
         self.label_23.setText(_translate("Dialog", "Номер кімнати:"))
         self.label_24.setText(_translate("Dialog", "Дата в\'їзду"))
-        self.label_26.setText(_translate("Dialog", "Номер телефона:"))
+        self.label_26.setText(_translate("Dialog", "Номер паспорту:"))
         self.label_27.setText(_translate("Dialog", "Номер кімнати:"))
         self.tab_6_close_sett_butt.setText(_translate("Dialog", "Закрити"))
         self.label_28.setText(_translate("Dialog", "Закрити заселення :"))

@@ -28,7 +28,7 @@ class Room(models.Model):  #
 
 
 class Settlement(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     check_in_date = models.DateField()
     check_out_date = models.DateField(null=True)
@@ -42,8 +42,8 @@ class Reservation(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    room = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True)
     check_in_date = models.DateField()
     check_out_date = models.DateField()
     price = models.DecimalField(max_digits=10, decimal_places=2)

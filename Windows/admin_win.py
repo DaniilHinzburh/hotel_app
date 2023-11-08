@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from defes import general_defes, win_defes, admin_defes
-from db.models import Room, Reservation, Discount, User
+from db.models import Room, Reservation, Discount, User, Order
 from decimal import Decimal
 
 
@@ -1033,8 +1033,8 @@ class Admin_win(object):
         self.table_order.setObjectName("table_order")
         self.table_order.setColumnCount(0)
         self.table_order.setRowCount(0)
-        header = self.table_order.horizontalHeader()
-        header.setFont(QtGui.QFont("Arial", 14))
+        # header = self.table_order.horizontalHeader()
+        # header.setFont(QtGui.QFont("Arial", 14))
         self.table_order.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.tabWidget.addTab(self.tab_6, "")
         self.tab_7 = QtWidgets.QWidget()
@@ -1307,10 +1307,10 @@ class Admin_win(object):
         self.tab_3_update_dis_butt.clicked.connect(lambda: self.tab_3_update_dis_butt_clicked())
         self.tab_3_create_dis_butt.clicked.connect(lambda: self.tab_3_create_dis_butt_clicked())
         # кнопки tab_4
-        self.tab_4_show_table_res_butt.clicked.connect(lambda :self.tab_4_show_table_res_butt_clicked())
-        self.tab_4_delete_res_butt.clicked.connect(lambda :self.tab_4_delete_res_butt_clicked())
+        self.tab_4_show_table_res_butt.clicked.connect(lambda: self.tab_4_show_table_res_butt_clicked())
+        self.tab_4_delete_res_butt.clicked.connect(lambda: self.tab_4_delete_res_butt_clicked())
         # кнопки tab_5
-
+        self.tab_5_show_table_order_butt.clicked.connect(lambda: self.tab_5_show_table_order_butt_clicked())
         # кнопки tab_6
 
     # методы tab_1
@@ -1459,7 +1459,7 @@ class Admin_win(object):
     def tab_4_show_table_res_butt_clicked(self):
         win_defes.beack_to_normal_butt_admin(self.tab_4_delete_res_butt)
         self.tab_4_id_res.setText("")
-        queryset = Reservation.objects.filter().values("id","user__passport", "room__number", "check_in_date",
+        queryset = Reservation.objects.filter().values("id", "user__passport", "room__number", "check_in_date",
                                                        "check_out_date")
         general_defes.fill_table_widget_with_data(queryset, self.table_res)
 
@@ -1472,6 +1472,10 @@ class Admin_win(object):
             print(e)
 
     # методы tab_5
+    def tab_5_show_table_order_butt_clicked(self):
+        queryset = Order.objects.filter().values("id", "user__passport", "room__number", "check_in_date",
+                                                 "check_out_date", "price")
+        general_defes.fill_table_widget_with_data(queryset, self.table_order)
 
     # методы tab_6
     def retranslateUi(self, Dialog):

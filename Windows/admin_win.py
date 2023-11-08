@@ -61,8 +61,8 @@ class Admin_win(object):
         self.table_user.setObjectName("table_user")
         self.table_user.setColumnCount(0)
         self.table_user.setRowCount(0)
-        header = self.table_user.horizontalHeader()
-        header.setFont(QtGui.QFont("Arial", 14))
+        # header = self.table_user.horizontalHeader()
+        # header.setFont(QtGui.QFont("Arial", 14))
         self.table_user.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.tab_1_show_table_useer_butt = QtWidgets.QPushButton(self.tab_1)
         self.tab_1_show_table_useer_butt.setGeometry(QtCore.QRect(20, 20, 311, 41))
@@ -359,17 +359,17 @@ class Admin_win(object):
         self.table_room.setObjectName("table_room")
         self.table_room.setColumnCount(0)
         self.table_room.setRowCount(0)
-        header = self.table_room.horizontalHeader()
-        header.setFont(QtGui.QFont("Arial", 14))
+        # header = self.table_room.horizontalHeader()
+        # header.setFont(QtGui.QFont("Arial", 14))
         self.table_room.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        self.tab_3_show_table_room = QtWidgets.QPushButton(self.tab_2)
-        self.tab_3_show_table_room.setGeometry(QtCore.QRect(20, 20, 311, 41))
+        self.tab_2_show_table_room = QtWidgets.QPushButton(self.tab_2)
+        self.tab_2_show_table_room.setGeometry(QtCore.QRect(20, 20, 311, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.tab_3_show_table_room.setFont(font)
-        self.tab_3_show_table_room.setStyleSheet("QPushButton {\n"
+        self.tab_2_show_table_room.setFont(font)
+        self.tab_2_show_table_room.setStyleSheet("QPushButton {\n"
                                                  "    color: rgb(172, 85, 27);\n"
                                                  "    border: 3px solid bleak;\n"
                                                  "    border-radius: 20px;\n"
@@ -382,7 +382,7 @@ class Admin_win(object):
                                                  "    background-color: white;\n"
                                                  "}\n"
                                                  "")
-        self.tab_3_show_table_room.setObjectName("tab_3_show_table_room")
+        self.tab_2_show_table_room.setObjectName("tab_2_show_table_room")
         self.tab_2_update_room_butt = QtWidgets.QPushButton(self.tab_2)
         self.tab_2_update_room_butt.setEnabled(False)
         self.tab_2_update_room_butt.setGeometry(QtCore.QRect(540, 370, 221, 41))
@@ -650,7 +650,7 @@ class Admin_win(object):
         self.tab_2_create_room_butt.setObjectName("tab_2_create_room_butt")
         self.label_3.raise_()
         self.table_room.raise_()
-        self.tab_3_show_table_room.raise_()
+        self.tab_2_show_table_room.raise_()
         self.tab_2_update_room_butt.raise_()
         self.tab_2_comfort.raise_()
         self.label_12.raise_()
@@ -1293,7 +1293,7 @@ class Admin_win(object):
         self.tab_1_dell_dis_butt.clicked.connect(lambda: self.tab_1_dell_dis_butt_clicked())
         self.tab_1_add_dis_butt.clicked.connect(lambda: self.tab_1_add_dis_butt_clicked())
         # кнопки tab_2
-
+        
         # кнопки tab_3
 
         # кнопки tab_4
@@ -1417,7 +1417,7 @@ class Admin_win(object):
         self.tab_1_dell_dis_butt.setText(_translate("Dialog", "Видалити знижку"))
         self.label_11.setText(_translate("Dialog", "Назва знижки: "))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_1), _translate("Dialog", "Список користувачів"))
-        self.tab_3_show_table_room.setText(_translate("Dialog", "Вивести данні всіх знижок"))
+        self.tab_2_show_table_room.setText(_translate("Dialog", "Вивести данні всіх знижок"))
         self.tab_2_update_room_butt.setText(_translate("Dialog", "Змінити данні"))
         self.label_12.setText(_translate("Dialog", "Номер кімнати:"))
         self.tab_2_delete_room_butt.setText(_translate("Dialog", "Видалити кімнату"))

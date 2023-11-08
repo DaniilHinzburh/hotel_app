@@ -21,3 +21,21 @@ def get_user_by_passport(passport):
         return User.objects.get(passport=passport)
     except Exception as e:
         print(e)
+
+
+def delete_user_disc(user, discount_name):
+    try:
+        discount = Discount.objects.get(name=discount_name)
+        user.discount.remove(discount)
+        user.save()
+    except Exception as e:
+        print(e)
+
+
+def add_discount_to_user(user, discount_name):
+    try:
+        discount = Discount.objects.get(name=discount_name)
+        user.discount.add(discount)
+        user.save()
+    except Exception as e:
+        print(e)

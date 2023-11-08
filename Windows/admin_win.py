@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from defes import general_defes, win_defes,admin_defes
+from defes import general_defes, win_defes, admin_defes
 from db.models import Room, Reservation, Discount, User
 
 
@@ -1290,6 +1290,8 @@ class Admin_win(object):
         self.tab_1_get_user_butt.clicked.connect(lambda: self.tab_1_get_user_butt_clicked())
         self.tab_1_update_user_butt.clicked.connect(lambda: self.tab_1_update_user_butt_clicked())
         self.tab_1_delete_user_dutt.clicked.connect(lambda: self.tab_1_delete_user_butt_clicked())
+        self.tab_1_dell_dis_butt.clicked.connect(lambda: self.tab_1_dell_dis_butt_clicked())
+        self.tab_1_add_dis_butt.clicked.connect(lambda: self.tab_1_add_dis_butt_clicked())
         # кнопки tab_2
 
         # кнопки tab_3
@@ -1320,6 +1322,8 @@ class Admin_win(object):
         self.tab_1_delete_user_dutt.setEnabled(True)
         win_defes.beack_to_normal_butt_admin(self.tab_1_delete_user_dutt)
         win_defes.beack_to_normal_butt_admin(self.tab_1_update_user_butt)
+        win_defes.beack_to_normal_butt_admin(self.tab_1_dell_dis_butt)
+        win_defes.beack_to_normal_butt_admin(self.tab_1_add_dis_butt)
 
     def tab_1_update_user_butt_clicked(self):
         win_defes.green_butt_admin(self.tab_1_update_user_butt)
@@ -1340,6 +1344,14 @@ class Admin_win(object):
         self.tab_1_adress.setText("")
         self.tab_1_comment.setText("")
         win_defes.green_butt_admin(self.tab_1_delete_user_dutt)
+
+    def tab_1_dell_dis_butt_clicked(self):
+        admin_defes.delete_user_disc(self.user, self.tab_1_dis_name)
+        win_defes.green_butt_admin(self.tab_1_dell_dis_butt)
+
+    def tab_1_add_dis_butt_clicked(self):
+        admin_defes.add_discount_to_user(self.user, self.tab_1_dis_name)
+        win_defes.green_butt_admin(self.tab_1_add_dis_butt)
 
     # методы tab_2
 

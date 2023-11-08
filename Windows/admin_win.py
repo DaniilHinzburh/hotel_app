@@ -1305,9 +1305,10 @@ class Admin_win(object):
         self.tab_3_get_dis_butt.clicked.connect(lambda: self.tab_3_get_dis_butt_clicked())
         self.tab_3_delete_butt.clicked.connect(lambda: self.tab_3_delete_butt_clicked())
         self.tab_3_update_dis_butt.clicked.connect(lambda: self.tab_3_update_dis_butt_clicked())
-        self.tab_3_create_dis_butt.clicked.connect(lambda :self.tab_3_create_dis_butt_clicked())
+        self.tab_3_create_dis_butt.clicked.connect(lambda: self.tab_3_create_dis_butt_clicked())
         # кнопки tab_4
-
+        self.tab_4_show_table_res_butt.clicked.connect(lambda :self.tab_4_show_table_res_butt_clicked())
+        self.tab_4_delete_res_butt.clicked.connect(lambda :self.tab_4_delete_res_butt_clicked())
         # кнопки tab_5
 
         # кнопки tab_6
@@ -1455,6 +1456,20 @@ class Admin_win(object):
             print(e)
 
     # методы tab_4
+    def tab_4_show_table_res_butt_clicked(self):
+        win_defes.beack_to_normal_butt_admin(self.tab_4_delete_res_butt)
+        self.tab_4_id_res.setText("")
+        queryset = Reservation.objects.filter().values("id","user__passport", "room__number", "check_in_date",
+                                                       "check_out_date")
+        general_defes.fill_table_widget_with_data(queryset, self.table_res)
+
+    def tab_4_delete_res_butt_clicked(self):
+        try:
+            reservation = Reservation.objects.get(id=int(self.tab_4_id_res.text()))
+            reservation.delete()
+            win_defes.green_butt_admin(self.tab_4_delete_res_butt)
+        except Exception as e:
+            print(e)
 
     # методы tab_5
 

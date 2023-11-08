@@ -627,7 +627,7 @@ class Admin_win(object):
         self.label_16.setAlignment(QtCore.Qt.AlignCenter)
         self.label_16.setObjectName("label_16")
         self.tab_2_create_room_butt = QtWidgets.QPushButton(self.tab_2)
-        self.tab_2_create_room_butt.setEnabled(False)
+        self.tab_2_create_room_butt.setEnabled(True)
         self.tab_2_create_room_butt.setGeometry(QtCore.QRect(540, 570, 221, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -1293,9 +1293,11 @@ class Admin_win(object):
         self.tab_1_dell_dis_butt.clicked.connect(lambda: self.tab_1_dell_dis_butt_clicked())
         self.tab_1_add_dis_butt.clicked.connect(lambda: self.tab_1_add_dis_butt_clicked())
         # кнопки tab_2
-        self.tab_2_show_table_room.clicked.connect(lambda :self.tab_2_show_table_room_clicked())
-        self.tab_2_get_room_butt.clicked.connect(lambda :self.tab_2_get_room_butt_clicked())
-
+        self.tab_2_show_table_room.clicked.connect(lambda: self.tab_2_show_table_room_clicked())
+        self.tab_2_get_room_butt.clicked.connect(lambda: self.tab_2_get_room_butt_clicked())
+        self.tab_2_delete_room_butt.clicked.connect(lambda: self.tab_2_delete_room_butt_clicked())
+        self.tab_2_update_room_butt.clicked.connect(lambda: self.tab_2_update_room_butt_clicked())
+        self.tab_2_create_room_butt.clicked.connect(lambda: self.tab_2_create_room_butt_clicked())
         # кнопки tab_3
 
         # кнопки tab_4
@@ -1357,8 +1359,8 @@ class Admin_win(object):
 
     # методы tab_2
     def tab_2_show_table_room_clicked(self):
-        queryset = Room.objects.filter().values("id", "number", "capacity", "comfort", "price", "is_free",
-                                                 "user_id__passport")
+        queryset = Room.objects.filter().values("number", "capacity", "comfort", "price", "is_free",
+                                                "user_id__passport")
         general_defes.fill_table_widget_with_data(queryset, self.table_room)
 
     def tab_2_get_room_butt_clicked(self):
@@ -1393,13 +1395,16 @@ class Admin_win(object):
     def tab_2_create_room_butt_clicked(self):
         try:
             win_defes.green_butt_admin(self.tab_2_create_room_butt)
-            new_room = Room
-            new_room.number = int(self.tab_2_number_new_room.text())
-            new_room.capacity = int(self.tab_2_capacity_new_room.text())
-            new_room.comfort = self.tab_2_comfort_new_room.text()
-            new_room.price = int(self.tab_2_price_new_room.text())
+            new_room = Room(
+                number=int(self.tab_2_number_new_room.text()),
+                capacity=int(self.tab_2_capacity_new_room.text()),
+                comfort=self.tab_2_comfort_new_room.text(),
+                price=int(self.tab_2_price_new_room.text())
+            )
+            new_room.save()
         except Exception as e:
             print(e)
+
     # методы tab_3
 
     # методы tab_4

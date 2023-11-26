@@ -1,0 +1,2423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="sizeIncrement">
+   <size>
+    <width>800</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../OneDrive/Files/programmer/python/Cursach/img/admin.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>780</width>
+     <height>780</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTabBar::tab {
+	color: rgb(172, 85, 27);
+    border: 2px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 10; /* Удаление внутренних отступов */
+	margin: 5px;
+	alignment: center;
+
+}
+
+QTabBar::tab:selected {
+    background-color: white;
+}
+           QTabWidget::tab-bar {
+                alignment: center;
+            }</string>
+   </property>
+   <property name="currentIndex">
+    <number>5</number>
+   </property>
+   <property name="tabBarAutoHide">
+    <bool>false</bool>
+   </property>
+   <widget class="QWidget" name="tab_1">
+    <attribute name="title">
+     <string>Список користувачів</string>
+    </attribute>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>780</width>
+       <height>780</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../OneDrive/Files/programmer/python/Cursach/img/admin.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="table_user">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>70</y>
+       <width>741</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableWidget {color: rgb(172, 85, 27);font-size: 24px;} QTableWidget::item {font-weight: bold;}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_1_show_table_useer_butt">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Вивести данні всіх користувачів</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_1_phone_in">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>240</y>
+       <width>261</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>240</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Номер паспорту:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_1_delete_user_dutt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>450</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Видалити користувача</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_1_get_user_butt">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>240</y>
+       <width>281</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Отримати данні користувача</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_1_update_user_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>450</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Змінити данні</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_1_first_name">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>320</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_1_last_name">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>320</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_1_password">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>320</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_1_adress">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>370</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_1_phone">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>370</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_1_comment">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>370</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="table_user_dis">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>560</y>
+       <width>311</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableWidget {color: rgb(172, 85, 27);font-size: 24px;} QTableWidget::item {font-weight: bold;} </string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_1_add_dis_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>670</y>
+       <width>211</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Додати знижку</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_1_dell_dis_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>670</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Видалити знижку</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>560</y>
+       <width>211</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Назва знижки: </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_1_dis_name">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>560</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Список номерів</string>
+    </attribute>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>780</width>
+       <height>780</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../OneDrive/Files/programmer/python/Cursach/img/admin.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="table_room">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>70</y>
+       <width>741</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableWidget {color: rgb(172, 85, 27);font-size: 24px;} QTableWidget::item {font-weight: bold;}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_2_show_table_room">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Вивести данні всіх знижок</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_2_update_room_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>370</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Змінити данні</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_2_comfort">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>320</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>240</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Номер кімнати:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_2_number_in">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>240</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_2_delete_room_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>370</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Видалити кімнату</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_2_capacity">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>320</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_2_price">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>320</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_2_get_room_butt">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>240</y>
+       <width>281</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Отримати данні кімнати</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_2_price_new_room">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>660</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_2_capacity_new_room">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>540</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_2_comfort_new_room">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>600</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_2_number_new_room">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>480</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>480</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Номер кімнати:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>540</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Місткість кімнати:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>600</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Комфорт кімнати:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>660</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Ціна кімнати:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_2_create_room_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>570</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Сворити</string>
+     </property>
+    </widget>
+    <zorder>label_3</zorder>
+    <zorder>table_room</zorder>
+    <zorder>tab_2_show_table_room</zorder>
+    <zorder>tab_2_update_room_butt</zorder>
+    <zorder>tab_2_comfort</zorder>
+    <zorder>label_12</zorder>
+    <zorder>tab_2_number_in</zorder>
+    <zorder>tab_2_delete_room_butt</zorder>
+    <zorder>tab_2_capacity</zorder>
+    <zorder>tab_2_price</zorder>
+    <zorder>tab_2_get_room_butt</zorder>
+    <zorder>tab_2_price_new_room</zorder>
+    <zorder>tab_2_capacity_new_room</zorder>
+    <zorder>tab_2_comfort_new_room</zorder>
+    <zorder>label_13</zorder>
+    <zorder>label_14</zorder>
+    <zorder>label_15</zorder>
+    <zorder>label_16</zorder>
+    <zorder>tab_2_create_room_butt</zorder>
+    <zorder>tab_2_number_new_room</zorder>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Список знижок</string>
+    </attribute>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>780</width>
+       <height>780</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../OneDrive/Files/programmer/python/Cursach/img/admin.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_3_show_table_dis_butt">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Вивести данні всіх знижок</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="table_dis">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>70</y>
+       <width>741</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableWidget {color: rgb(172, 85, 27);font-size: 24px;} QTableWidget::item {font-weight: bold;}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_3_update_dis_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>370</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Змінити данні</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_3_percent_dis">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>370</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>240</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Назва знижки:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>540</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Відсоток:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_3_name_dis">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>240</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_3_name_new_dis">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>480</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_3_get_dis_butt">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>240</y>
+       <width>281</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Отримати данні знижки</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_3_create_dis_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>600</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Сворити</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>480</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Назва нової знижки:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_3_name_dis_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>320</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_3_percent_new_dis">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>540</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_3_delete_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>320</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Видалити знижку</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>Список бронюваннь</string>
+    </attribute>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>780</width>
+       <height>780</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../OneDrive/Files/programmer/python/Cursach/img/admin.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_20">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>660</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>id</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="table_res">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>70</y>
+       <width>741</width>
+       <height>571</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableWidget {color: rgb(172, 85, 27);font-size: 24px;} QTableWidget::item {font-weight: bold;}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_4_show_table_res_butt">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Вивести список бронювань</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_4_id_res">
+     <property name="geometry">
+      <rect>
+       <x>142</x>
+       <y>660</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_4_delete_res_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>482</x>
+       <y>660</y>
+       <width>281</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Видалити</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_6">
+    <attribute name="title">
+     <string>Список замовленнь</string>
+    </attribute>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>780</width>
+       <height>780</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../OneDrive/Files/programmer/python/Cursach/img/admin.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_5_show_table_order_butt">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Вивести список бронювань</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="table_order">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>70</y>
+       <width>741</width>
+       <height>631</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableWidget {color: rgb(172, 85, 27);font-size: 24px;} QTableWidget::item {font-weight: bold;}</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_7">
+    <attribute name="title">
+     <string>Список заселень</string>
+    </attribute>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>780</width>
+       <height>780</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../OneDrive/Files/programmer/python/Cursach/img/admin.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="table_settlement">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>70</y>
+       <width>741</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableWidget {color: rgb(172, 85, 27);font-size: 24px;} QTableWidget::item {font-weight: bold;}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_6_show_table_settlement_butt">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Вивести список заселень</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_6_passport_on_sett">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>280</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_21">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>280</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Номер паспорту:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_6_on_sett_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>340</y>
+       <width>281</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Відкрити</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_22">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>230</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Відкрити заселення :</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_6_room_num_on_sett">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>340</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_23">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>340</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Номер кімнати:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_6_data_in">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>400</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_24">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>400</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Дата в'їзду</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_6_room_num_close_sett">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>600</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tab_6_passport_close_sett">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>540</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);
+</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_26">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>540</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Номер паспорту:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_27">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>600</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Номер кімнати:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tab_6_close_sett_butt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>570</y>
+       <width>281</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(172, 85, 27);
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Закрити</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_28">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>470</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(172, 85, 27) ;
+border: 3px solid bleak;
+border-radius: 20px;
+background-color: rgb(238, 238, 238);</string>
+     </property>
+     <property name="text">
+      <string>Закрити заселення :</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

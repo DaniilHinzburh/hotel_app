@@ -1,0 +1,7 @@
+QTableWidget {color: DarkBlue;font-size: 24px;} QTableWidget::item {font-weight: bold;}
+
+
+в коде прописать: 
+header = self.ИМЯ.horizontalHeader()
+        header.setFont(QtGui.QFont("Arial", 14))
+        self.ИМЯ.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)

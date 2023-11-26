@@ -1,0 +1,12 @@
+QPushButton {
+    color: DarkBlue;
+    border: 3px solid bleak;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    text-align: center; /* Выравнивание текста по центру по вертикали */
+    padding: 0; /* Удаление внутренних отступов */
+}
+
+QPushButton:hover {
+    background-color: white;
+}

@@ -1,4 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from django.db.models import F
+
 from defes import general_defes, win_defes, admin_defes
 from db.models import Room, Reservation, Discount, User, Order, Settlement
 from decimal import Decimal
@@ -1314,8 +1316,8 @@ class Admin_win(object):
         self.tab_5_show_table_order_butt.clicked.connect(lambda: self.tab_5_show_table_order_butt_clicked())
         # кнопки tab_6
         self.tab_6_show_table_settlement_butt.clicked.connect(lambda: self.tab_6_show_table_settlement_butt_clicked())
-        self.tab_6_on_sett_butt.clicked.connect(lambda :self.tab_6_on_sett_butt_clicked())
-        self.tab_6_close_sett_butt.clicked.connect(lambda :self.tab_6_close_sett_butt_clicked())
+        self.tab_6_on_sett_butt.clicked.connect(lambda: self.tab_6_on_sett_butt_clicked())
+        self.tab_6_close_sett_butt.clicked.connect(lambda: self.tab_6_close_sett_butt_clicked())
 
     # методы tab_1
     def tab_1_show_table_user(self):
@@ -1370,8 +1372,10 @@ class Admin_win(object):
 
     # методы tab_2
     def tab_2_show_table_room_clicked(self):
-        queryset = Room.objects.filter().values("number", "capacity", "comfort", "price", "is_free",
-                                                "user_id__passport")
+        queryset = Room.objects.filter().annotate(passport=F("user__passport")).values("number", "capacity", "comfort",
+                                                                                       "price", "is_free",
+                                                                                       "passport")
+
         general_defes.fill_table_widget_with_data(queryset, self.table_room)
 
     def tab_2_get_room_butt_clicked(self):
@@ -1463,7 +1467,7 @@ class Admin_win(object):
     def tab_4_show_table_res_butt_clicked(self):
         win_defes.beack_to_normal_butt_admin(self.tab_4_delete_res_butt)
         self.tab_4_id_res.setText("")
-        queryset = Reservation.objects.filter().values("id", "user__passport", "room__number", "check_in_date",
+        queryset = Reservation.objects.filter().annotate(passport=F("user__passport")).values("id", "passport", "room__number", "check_in_date",
                                                        "check_out_date")
         general_defes.fill_table_widget_with_data(queryset, self.table_res)
 
@@ -1477,13 +1481,13 @@ class Admin_win(object):
 
     # методы tab_5
     def tab_5_show_table_order_butt_clicked(self):
-        queryset = Order.objects.filter().values("id", "user__passport", "room__number", "check_in_date",
+        queryset = Order.objects.filter().annotate(passport=F("user__passport")).values("id", "passport", "room__number", "check_in_date",
                                                  "check_out_date", "price")
         general_defes.fill_table_widget_with_data(queryset, self.table_order)
 
     # методы tab_6
     def tab_6_show_table_settlement_butt_clicked(self):
-        queryset = Settlement.objects.filter().values("user__passport", "room__number", "check_in_date",
+        queryset = Settlement.objects.filter().annotate(passport=F("user__passport")).values("passport", "room__number", "check_in_date",
                                                       "check_out_date")
         general_defes.fill_table_widget_with_data(queryset, self.table_settlement)
 
@@ -1496,6 +1500,8 @@ class Admin_win(object):
             )
             settlement.save()
             win_defes.green_butt_admin(self.tab_6_on_sett_butt)
+            room = Room.objects.get(int(self.tab_6_room_num_on_sett.text()))
+            room.is_free = False
         except Exception as e:
             print(e)
 
@@ -1506,6 +1512,8 @@ class Admin_win(object):
                                                 room__number=int(self.tab_6_room_num_close_sett.text()))
             settlement.check_out_date = datetime.now().date()
             settlement.save()
+            room = Room.objects.get(int(self.tab_6_room_num_on_sett.text()))
+            room.is_free = True
         except Exception as e:
             print(e)
 

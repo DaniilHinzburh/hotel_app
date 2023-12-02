@@ -1512,6 +1512,7 @@ class Admin_win(object):
                                                 room__number=int(self.tab_6_room_num_close_sett.text()))
             settlement.check_out_date = datetime.now().date()
             settlement.save()
+            Reservation.objects.filter(room__number=int(self.tab_6_room_num_close_sett.text()),check_in_date=settlement.check_in_date).delete()
             room = Room.objects.get(int(self.tab_6_room_num_on_sett.text()))
             room.is_free = True
         except Exception as e:

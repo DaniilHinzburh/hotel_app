@@ -4,6 +4,7 @@ from defes import user_defes, general_defes
 from defes.win_defes import click_butt, green_butt
 from datetime import date, timedelta, datetime
 from decimal import Decimal
+from defes import user_win_defes
 
 
 class User_Win(object):
@@ -1005,69 +1006,24 @@ class User_Win(object):
         self.tab_2_6_butt.clicked.connect(
             lambda: click_butt(self, self.tab_2_set, 1, self.tab_2_6_butt, 6, self.tab_2_2_butt, self.tab_2_4_butt)
         )
-        self.show_rooms.clicked.connect(lambda: self.tab_2_show_rooms_def())
+        self.show_rooms.clicked.connect(lambda: user_win_defes.tab_2_show_rooms_def(self))
 
         self.count_price_butt.clicked.connect(
             lambda: self.price_text.setText(
                 str(user_defes.count_total_price(int(self.number_text.text()), int(self.days_count.text())))))
         self.do_discounts.clicked.connect(
             lambda: self.price_text.setText(str(user_defes.apply_discounts(self.user, int(self.price_text.text())))))
-        self.create_order_butt.clicked.connect(lambda: self.tab_2_create_order_click())
+        self.create_order_butt.clicked.connect(lambda: user_win_defes.tab_2_create_order_click(self))
 
         # кнопки tab_3
 
-        self.show_my_res.clicked.connect(lambda: self.tab_3_show_reservation())
-        self.delete_reservation_butt.clicked.connect(lambda: self.tab_3_delete_reservation())
+        self.show_my_res.clicked.connect(lambda: user_win_defes.tab_3_show_reservation(self))
+        self.delete_reservation_butt.clicked.connect(lambda: user_win_defes.tab_3_delete_reservation(self))
 
         # кнопки tab_4
-        self.show_my_disc_butt.clicked.connect(lambda :self.tab_4_show_discount())
+        self.show_my_disc_butt.clicked.connect(lambda :user_win_defes.tab_4_show_discount(self))
 
-    # методы
-    def tab_1_show_rooms_def(self):
-        try:
-            self.tab_1_set[3] = datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date()
-            self.tab_1_set[4] = datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date()
-            data = user_defes.find_available_rooms(*self.tab_1_set)
-            general_defes.fill_table_widget_with_data(data, self.table_1)
-        except Exception as e:
-            print(e)
 
-    def tab_2_show_rooms_def(self):
-        try:
-            self.tab_2_set[2] = int(self.days_count.text())
-            data = user_defes.find_available_rooms(*self.tab_2_set)
-            general_defes.fill_table_widget_with_data(data, self.table_2)
-        except Exception as e:
-            print(e)
-
-    def tab_1_create_order_click(self):
-        green_butt(self.create_order_butt_3)
-        user_defes.create_reservation(
-            self.user,
-            int(self.number_text_3.text()),
-            datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
-            datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date(),
-            Decimal(self.price_text_3.text()))
-
-    def tab_2_create_order_click(self):
-        green_butt(self.create_order_butt)
-        user_defes.create_reservation(
-            self.user,
-            int(self.number_text.text()),
-            datetime.now().date(),
-            datetime.now().date() + timedelta(days=int(self.days_count.text())),
-            Decimal(self.price_text.text()))
-
-    def tab_3_show_reservation(self):
-        general_defes.fill_table_widget_with_data(user_defes.get_reservation(self.user), self.table_3)
-
-    def tab_3_delete_reservation(self):
-        if self.id_res_text.text() != "":
-            user_defes.delete_reservation(int(self.id_res_text.text()))
-            self.id_res_text.setText("")
-
-    def tab_4_show_discount(self):
-        general_defes.fill_table_widget_with_data(user_defes.show_my_discount(self.user), self.table_4)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

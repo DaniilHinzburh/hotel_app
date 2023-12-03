@@ -1,7 +1,4 @@
 import init_django_orm  # noqa: F401
-import db.models
-from PyQt5 import QtCore, QtGui, QtWidgets
-from defes import user_defes
 
 
 def click_butt(self, set, elem, but_click, append, but_1, but_2):

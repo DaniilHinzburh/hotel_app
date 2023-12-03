@@ -1,7 +1,6 @@
 import init_django_orm  # noqa: F401
-from PyQt5 import QtWidgets
-from datetime import date, timedelta, datetime
-from db.models import Room, Reservation, Discount, User, Order, Settlement
+from datetime import timedelta, datetime
+from db.models import Room, Reservation, Discount, User, Order
 from decimal import Decimal
 
 

@@ -57,7 +57,7 @@ class Admin_win(object):
         self.table_user = QtWidgets.QTableWidget(self.tab_1)
         self.table_user.setGeometry(QtCore.QRect(15, 70, 741, 151))
         self.table_user.setStyleSheet(
-            "QTableWidget {color: rgb(172, 85, 27);font-size: 24px;} QTableWidget::item {font-weight: bold;}")
+            "QTableWidget {color: rgb(172, 85, 27);font-size: 16px;} QTableWidget::item {font-weight: bold;}")
         self.table_user.setObjectName("table_user")
         self.table_user.setColumnCount(0)
         self.table_user.setRowCount(0)

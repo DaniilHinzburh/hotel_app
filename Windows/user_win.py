@@ -973,8 +973,8 @@ class User_Win(object):
         self.count_price_butt_3.clicked.connect(
             lambda: self.price_text_3.setText(
                 str(user_defes.count_total_price(int(self.number_text_3.text()), None,
-                                                    datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
-                                                    datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date()))))
+                                                 datetime.strptime(self.data_in_text.text(), "%Y-%m-%d").date(),
+                                                 datetime.strptime(self.data_out_text.text(), "%Y-%m-%d").date()))))
 
         self.do_discounts_2.clicked.connect(
             lambda: self.price_text_3.setText(
@@ -1021,9 +1021,7 @@ class User_Win(object):
         self.delete_reservation_butt.clicked.connect(lambda: user_win_defes.tab_3_delete_reservation(self))
 
         # кнопки tab_4
-        self.show_my_disc_butt.clicked.connect(lambda :user_win_defes.tab_4_show_discount(self))
-
-
+        self.show_my_disc_butt.clicked.connect(lambda: user_win_defes.tab_4_show_discount(self))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

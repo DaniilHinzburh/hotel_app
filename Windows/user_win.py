@@ -968,7 +968,7 @@ class User_Win(object):
         self.tab_1_6_butt.clicked.connect(
             lambda: click_butt(self, self.tab_1_set, 1, self.tab_1_6_butt, 6, self.tab_1_2_butt, self.tab_1_4_butt)
         )
-        self.tab_1_show_rooms.clicked.connect(lambda: self.tab_1_show_rooms_def())
+        self.tab_1_show_rooms.clicked.connect(lambda: user_win_defes.tab_1_show_rooms_def(self))
 
         self.count_price_butt_3.clicked.connect(
             lambda: self.price_text_3.setText(
@@ -981,7 +981,7 @@ class User_Win(object):
                 str(user_defes.apply_discounts(self.user, int(self.price_text_3.text())))))
 
         self.create_order_butt_3.clicked.connect(
-            lambda: self.tab_1_create_order_click()
+            lambda: user_win_defes.tab_1_create_order_click(self)
         )
 
         # кнопки tab_2
